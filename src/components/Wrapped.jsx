@@ -90,12 +90,12 @@ const statsData = [
   }
 ];
 
-const StatCard = ({ stat }) => {
+const StatCard = ({ stat, scrollContainer }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8, y: 50 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: false, margin: "-50px" }}
+      viewport={{ root: scrollContainer, once: false, margin: "-50px" }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className={`relative w-full rounded-[2.5rem] bg-white/5 backdrop-blur-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col p-6 md:p-8 ${stat.span === 2 ? 'md:col-span-2' : 'md:col-span-1'} ${stat.type === 'simple' ? 'items-center text-center justify-center min-h-[300px]' : 'min-h-[300px]'}`}
     >
@@ -135,6 +135,7 @@ const StatCard = ({ stat }) => {
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: `${(stat.val1 / (stat.val1 + stat.val2)) * 100}%` }}
+                  viewport={{ root: scrollContainer }}
                   transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
                   className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
                 ></motion.div>
@@ -150,6 +151,7 @@ const StatCard = ({ stat }) => {
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: `${(stat.val2 / (stat.val1 + stat.val2)) * 100}%` }}
+                  viewport={{ root: scrollContainer }}
                   transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
                   className="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full"
                 ></motion.div>
@@ -199,6 +201,7 @@ const StatCard = ({ stat }) => {
                 key={idx}
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ root: scrollContainer }}
                 transition={{ delay: idx * 0.1, type: "spring", stiffness: 200 }}
                 className="w-16 h-16 md:w-20 md:h-20 bg-black/30 backdrop-blur-md rounded-2xl flex items-center justify-center text-4xl md:text-5xl border border-white/10 shadow-lg"
               >
@@ -220,6 +223,7 @@ const StatCard = ({ stat }) => {
                 key={idx}
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ root: scrollContainer }}
                 transition={{ delay: idx * 0.1 }}
                 className="w-full bg-black/20 backdrop-blur-md rounded-xl py-3 px-6 text-white font-serif italic text-lg md:text-xl border border-white/5 shadow-md text-left"
               >
@@ -242,6 +246,7 @@ const StatCard = ({ stat }) => {
                 key={idx}
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ root: scrollContainer }}
                 transition={{ delay: idx * 0.1, type: "spring", stiffness: 100 }}
                 className={`font-black font-sans drop-shadow-xl ${word.size}`}
               >
@@ -269,6 +274,7 @@ const StatCard = ({ stat }) => {
             <motion.div 
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ root: scrollContainer }}
               transition={{ delay: 0.3 }}
               className="self-end max-w-[80%] bg-blue-500/80 backdrop-blur-md text-white rounded-2xl rounded-tr-sm px-6 py-4 shadow-lg border border-white/10"
             >
@@ -279,6 +285,7 @@ const StatCard = ({ stat }) => {
             <motion.div 
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ root: scrollContainer }}
               transition={{ delay: 1 }}
               className="self-start max-w-[80%] bg-zinc-800/80 backdrop-blur-md text-white rounded-2xl rounded-tl-sm px-6 py-4 shadow-lg border border-white/10"
             >
@@ -338,14 +345,14 @@ const Wrapped = ({ onBack }) => {
       <div className="relative z-20 pb-40 px-4 md:px-8 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {statsData.map((stat) => (
-            <StatCard key={stat.id} stat={stat} />
+            <StatCard key={stat.id} stat={stat} scrollContainer={containerRef} />
           ))}
         </div>
         
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: false, margin: "-50px" }}
+          viewport={{ root: containerRef, once: false, margin: "-50px" }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
           className="w-full mt-24 text-center p-12 md:p-20 rounded-[3rem] bg-white/5 backdrop-blur-3xl border border-white/20 shadow-2xl relative overflow-hidden"
         >
