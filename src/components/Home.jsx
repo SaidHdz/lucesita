@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'fram
 import FoldText from './FoldText';
 import BlurText from './BlurText';
 import Plasma from './Plasma';
+import Counter from './Counter';
 import dbtmCover from '../assets/dbtm.jpg';
 
 const springValues = { damping: 30, stiffness: 100, mass: 2 };
@@ -147,7 +148,9 @@ const Home = ({ onViewChange }) => {
   const containerRef = useRef(null);
 
   return (
-    <section ref={containerRef} className="h-screen overflow-y-auto overscroll-none relative flex flex-col items-center justify-start pt-20 pb-32 px-6 md:px-12 overflow-x-hidden">
+    <section ref={containerRef} className="h-[100dvh] overflow-y-auto overscroll-none relative flex flex-col items-center justify-start pt-28 pb-32 px-6 md:px-12 overflow-x-hidden">
+      
+      <Counter />
       
       {/* Plasma Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -169,10 +172,10 @@ const Home = ({ onViewChange }) => {
           delay={150}
           animateBy="words"
           direction="bottom"
-          className="text-5xl md:text-[6rem] font-sans font-black tracking-tighter text-white mb-6 leading-tight drop-shadow-2xl"
+          className="text-6xl md:text-[7.5rem] font-sans font-black tracking-tighter text-white mb-6 leading-tight drop-shadow-2xl"
         />
         
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-4">
            <FoldText
              text="Un espacio diseñado solo para ti."
              splitBy="word"
@@ -186,6 +189,15 @@ const Home = ({ onViewChange }) => {
              className="font-sans"
            />
         </div>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="text-white/60 font-serif italic text-lg md:text-xl"
+        >
+          te quiero mucho, no es mucho pero es un regalo con amor
+        </motion.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 z-10 w-full max-w-4xl">
