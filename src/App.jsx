@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Rokola from './components/Rokola';
 import Recuerdos from './components/Recuerdos';
 import Buzon from './components/Buzon';
+import Wrapped from './components/Wrapped';
 import AnimatedBackground from './components/AnimatedBackground';
 
 function App() {

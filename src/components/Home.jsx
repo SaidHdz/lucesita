@@ -200,7 +200,7 @@ const Home = ({ onViewChange }) => {
         </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 z-10 w-full max-w-4xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 z-10 w-full max-w-6xl">
         
         {/* Card 1: Rokola */}
         <PremiumCard 
@@ -224,6 +224,18 @@ const Home = ({ onViewChange }) => {
           buttonText="Ver Galería"
           scrollContainer={containerRef}
           onClick={() => onViewChange('recuerdos')}
+        />
+
+        {/* Card 3: Wrapped */}
+        <PremiumCard 
+          image={dbtmCover}
+          title="Nuestro Wrapped"
+          price="Top"
+          description="Un resumen estadístico de nuestro tiempo juntos, canciones más escuchadas y momentos top."
+          badges={["Estadísticas", "Especial"]}
+          buttonText="Descubrir"
+          scrollContainer={containerRef}
+          onClick={() => onViewChange('wrapped')}
         />
 
       </div>
