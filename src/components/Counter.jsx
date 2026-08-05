@@ -62,30 +62,22 @@ const Counter = () => {
   if (!timeText) return null;
 
   return (
-    <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50 p-4 rounded-3xl bg-white/5 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] backdrop-blur-xl flex flex-col items-end pointer-events-none transition-all">
-      <p className="text-white/60 font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase mb-3">
+    <div className="fixed top-4 right-4 md:top-8 md:right-8 z-50 p-3 md:p-5 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] backdrop-blur-xl flex flex-col items-end pointer-events-none transition-all scale-[0.8] md:scale-100 origin-top-right">
+      <p className="text-white/60 font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase mb-2 md:mb-3">
         Desde que nos conocimos
       </p>
       <SplitFlapText
         text={timeText}
-        fontSize={isMobile() ? 24 : 32}
+        fontSize="clamp(14px, 4vw, 28px)"
         padTo={19}
         tileColor="#050505"
         textColor="#ffffff"
         tileRadius={6}
-        gap={4}
+        gap="clamp(2px, 0.5vw, 4px)"
         flipDuration={0.2}
       />
     </div>
   );
 };
-
-// Helper for responsive font size init
-function isMobile() {
-  if (typeof window !== 'undefined') {
-    return window.innerWidth < 768;
-  }
-  return false;
-}
 
 export default Counter;
