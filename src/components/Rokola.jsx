@@ -125,9 +125,25 @@ const Rokola = ({ onBack }) => {
         <button onClick={onBack} className="text-white/80 hover:text-white transition-colors">
           <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
         </button>
-        <span className="text-white/90 text-xs md:text-sm font-bold tracking-[0.2em] truncate px-4">
-          {currentIndex + 1} DE {songs.length}
-        </span>
+        <div className="flex flex-col items-center justify-center text-center px-4 overflow-hidden relative min-w-[200px] h-10">
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={currentIndex}
+              initial={{ y: 15, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -15, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 flex flex-col items-center justify-center"
+            >
+              <span className="text-white/90 text-xs md:text-sm font-bold tracking-[0.2em] truncate w-full max-w-[200px] md:max-w-[300px]">
+                {currentSong.title}
+              </span>
+              <span className="text-[10px] md:text-xs text-white/60 mt-0.5 tracking-widest font-mono">
+                {currentIndex + 1} / {songs.length}
+              </span>
+            </motion.div>
+          </AnimatePresence>
+        </div>
         <button onClick={onBack} className="text-white/80 hover:text-white transition-colors">
           <X className="w-5 h-5 md:w-6 md:h-6" />
         </button>

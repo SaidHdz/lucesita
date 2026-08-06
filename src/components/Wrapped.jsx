@@ -6,7 +6,7 @@ const statsData = [
   // 1. Resumen General
   { 
     id: 'total', type: 'simple', 
-    title: 'El Contador Total', value: '142,045', subtitle: 'Mensajes enviados en la historia de nuestro chat', 
+    title: 'El Contador Total', value: '142,045', subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 
     icon: <MessageCircle className="w-8 h-8 text-blue-400" />, gradient: 'from-blue-500/20 to-cyan-500/20', span: 1 
   },
   { 
@@ -16,7 +16,7 @@ const statsData = [
   },
   { 
     id: 'intense', type: 'simple', 
-    title: 'El Día Más Intenso', value: '14 de Febrero', subtitle: 'No nos callamos en todo el día con 3,420 mensajes', 
+    title: 'El Día Más Intenso', value: '14 de Febrero', subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 
     icon: <Flame className="w-8 h-8 text-orange-400" />, gradient: 'from-orange-500/20 to-red-500/20', span: 2 
   },
   
@@ -24,28 +24,28 @@ const statsData = [
   { 
     id: 'flash', type: 'vs', 
     title: 'El Flash vs El Fantasma', 
-    leftName: 'El Flash', leftVal: 'Deth', leftSub: 'Responde en 5s',
-    rightName: 'El Fantasma', rightVal: 'Hania', rightSub: 'Deja en visto 3h',
+    leftName: 'El Flash', leftVal: 'Deth', leftSub: 'Lorem ipsum dolor sit',
+    rightName: 'El Fantasma', rightVal: 'Hania', rightSub: 'Lorem ipsum dolor sit',
     icon: <Zap className="w-8 h-8 text-yellow-400" />, gradient: 'from-yellow-500/20 to-amber-500/20', span: 2 
   },
   { 
     id: 'sleep', type: 'simple', 
-    title: '¿Quién caía primero?', value: 'Hania', subtitle: 'Siempre mandaba el último mensaje antes de dejarnos en visto por quedarse dormida 😴', 
+    title: '¿Quién caía primero?', value: 'Hania', subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 
     icon: <Moon className="w-8 h-8 text-slate-400" />, gradient: 'from-slate-500/20 to-gray-500/20', span: 1 
   },
   { 
     id: 'bible', type: 'simple', 
-    title: 'Las Biblias', value: 'Deth', subtitle: 'Promedio de 450 caracteres por mensaje (Literales testamentos)', 
+    title: 'Las Biblias', value: 'Deth', subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 
     icon: <Book className="w-8 h-8 text-emerald-400" />, gradient: 'from-emerald-500/20 to-teal-500/20', span: 1 
   },
   { 
     id: 'night', type: 'simple', 
-    title: 'Los Noctámbulos', value: 'Deth', subtitle: 'Rey indiscutible de mandar mensajes de madrugada a las 3:00 AM', 
+    title: 'Los Noctámbulos', value: 'Deth', subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 
     icon: <Moon className="w-8 h-8 text-indigo-400" />, gradient: 'from-indigo-500/20 to-blue-500/20', span: 1 
   },
   { 
     id: 'audio', type: 'bar-chart', 
-    title: 'El Podio de los Audios', name1: 'Hania', val1: 420, name2: 'Deth', val2: 15, subtitle: '🎙️ Alguien prefiere mil veces hablar que escribir',
+    title: 'El Podio de los Audios', name1: 'Hania', val1: 420, name2: 'Deth', val2: 15, subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     gradient: 'from-teal-500/20 to-emerald-500/20', span: 1 
   },
   
@@ -77,14 +77,14 @@ const statsData = [
   // 4. Emocional
   { 
     id: 'love', type: 'bar-chart', 
-    title: 'Contador de "Te quiero"', name1: 'Deth', val1: 4500, name2: 'Hania', val2: 4499, subtitle: 'Casi un empate técnico en cursilería 🥰',
+    title: 'Contador de "Te quiero"', name1: 'Deth', val1: 4500, name2: 'Hania', val2: 4499, subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     gradient: 'from-red-500/20 to-pink-500/20', span: 2 
   },
   { 
     id: 'first', type: 'message', 
     title: 'El Origen (Cómo empezó)', date: '01 de Abril de 2026, 15:15 PM', 
-    sender: 'Deth', text: 'Holaa, por fin me animé a hablarte 😅', 
-    replySender: 'Hania', replyText: 'Jajaja hola! ya te habías tardado ✨',
+    sender: 'Deth', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    replySender: 'Hania', replyText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     icon: <Sparkles className="w-8 h-8 text-yellow-400" />,
     gradient: 'from-amber-500/20 to-yellow-500/20', span: 2 
   }
@@ -361,7 +361,7 @@ const Wrapped = ({ onBack }) => {
             Fin del Resumen
           </h2>
           <p className="relative z-10 text-white/80 font-serif italic text-xl md:text-3xl max-w-2xl mx-auto">
-            Seguiremos llenando este wrapped de más mensajes, más llamadas y más recuerdos para la próxima.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </motion.div>
       </div>

@@ -2,7 +2,7 @@ import yTeOlvidasteCover from '../assets/YTEOLVIDASTE.jpg';
 import yTeOlvidasteAudio from '../assets/Y-te-olvidaste.mp3';
 import quedateAudio from '../assets/Quedate.mp3';
 import teQuieroAudio from '../assets/Hombres-G-Te-quiero-_Audio-Oficial_-_1_.mp3';
-import soneAudio from '../assets/Soñé.mp3';
+import soneAudio from '../assets/soñe.mp3';
 import ughAudio from '../assets/nsqk-UGH-_Video-oficial_.mp3';
 import weltitaAudio from '../assets/BAD-BUNNY-ft.-Chuwi-WELTiTA-_Visualizer_-_-DeBÍ-TiRAR-MáS-FOToS.mp3';
 import misaAudio from '../assets/nsqk-misa-_Audio-Oficial_.mp3';
@@ -13,7 +13,7 @@ import aceleraaAudio from '../assets/ACELERAAÁ - Lucho RK, Alvaro Diaz, Kidd Vo
 import inarowAudio from '../assets/Alvaro Diaz - INAROW62. (Visualizer).mp3';
 import spacexxxAudio from '../assets/Alvaro Diaz - SPACEXXX. (Visualizer).mp3';
 import gueraAudio from '../assets/Big Sempa x Sabino - La Güera (Video Oficial).mp3';
-import siEnTuMenteAudio from '../assets/Nsqk - Si En Tu Mente Estuve (Video Oficial) _ ROY.mp3';
+import siEnTuMenteAudio from '../assets/Nsqk-Si-En-Tu-Mente-Estuve-_Visualizer_-_-ROY.mp3';
 import tuVasSinAudio from '../assets/Rels B - TU VAS SIN (fav) _ afroLOVA 25.mp3';
 import omakaseCover from '../assets/omakase.png';
 import royCover from '../assets/roy.png';
@@ -22,8 +22,12 @@ import aceleraaCover from '../assets/aceleraa.png';
 import loteCover from '../assets/lote.jpg';
 import tuVasSinCover from '../assets/tu vas sin.jpg';
 import sayonaraCover from '../assets/sayonara.jpg';
-import felicilandiaCover from '../assets/ab67616d0000b2734385062efd655ededc0d2caa (1)felicilandia.jpg';
+import felicilandiaCover from '../assets/felicilandia.jpg';
 import deidadCover from '../assets/deidad.jpg';
+import bimelAudio from '../assets/BIMEL..mp3';
+import noPodemosSerAmigosAudio from '../assets/NO-PODEMOS-SER-AMIGOS..mp3';
+import nadieMasAudio from '../assets/Nsqk-NADIE-MÁS_-_Letra_.mp3';
+import sinPoderesAudio from '../assets/SIN-PODERES.mp3';
 import cosasCover from '../assets/cosas.jpg';
 import misaCover from '../assets/misa.png';
 import dbtmCover from '../assets/dbtm.jpg';
@@ -212,7 +216,7 @@ export const initialSongs = [
   {
     id: "weltita",
     title: "WELTiTA",
-    artist: "Artista",
+    artist: "Bad Bunny",
     cover: dbtmCover,
     audio: weltitaAudio,
     note: "te vo'a llenar de besitos la carita, un dia conmigo es lo que tu necesita', sonriendo tu te ves mas bonita",
@@ -527,7 +531,42 @@ export const initialSongs = [
     title: "SIN PODERES",
     artist: "Álvaro Díaz",
     cover: sayonaraCover,
+    audio: sinPoderesAudio,
     note: "es que tu na ma, me dejas sin poderes",
+    lyrics: [
+      { time: 4, text: "Dime dónde quiere' que te espere" },
+      { time: 8, text: "Sube lo que sea, que se enteren" },
+      { time: 13, text: "Shorty, tú estás como quiere'" },
+      { time: 17, text: "Dime dónde quiere' que te espere" },
+      { time: 21, text: "Sube lo que sea, que se enteren" },
+      { time: 25, text: "Que yo estoy pa' ti, na' má'" },
+      { time: 28, text: "Es que solo tú na' má'" },
+      { time: 31, text: "Me dejas sin podere'" },
+      { time: 35, text: "Que todita' se enteren" },
+      { time: 39, text: "Que yo estoy pa' ti, na' má'" },
+      { time: 43, text: "Es que solo tú na' má'" },
+      { time: 47, text: "Me dejas sin podere'" },
+      { time: 51, text: "Si es por ella, practicamo' a tener nene' todos los weekene'" },
+      { time: 57, text: "Si la tuviste y la dejaste ir, diablo, qué loco ere'" },
+      { time: 62, text: "Natural, no quiero que se opere" },
+      { time: 66, text: "Si e' el diablo, pues que el diablo me lleve" },
+      { time: 71, text: "Tú va' a seguir enviando foto' así" },
+      { time: 75, text: "Va' a dejarme sin podere'" },
+      { time: 79, text: "Cáele sola" },
+      { time: 82, text: "Que quiero romperte, no quiero romperte el cora" },
+      { time: 87, text: "Deja el nebuleo" },
+      { time: 90, text: "Y háblame claro cuando te veo" },
+      { time: 94, text: "Saca buenas nota', me la explota" },
+      { time: 98, text: "Porque se porta mal cuando toca" },
+      { time: 102, text: "Estaba rota por culpa de un idiota" },
+      { time: 106, text: "Y ahora le frontea conmigo en la carota" },
+      { time: 111, text: "Me deja sin podere'" },
+      { time: 117, text: "Yo no entiendo cómo es que tú" },
+      { time: 121, text: "Me tienes así, me hiciste vudú" },
+      { time: 126, text: "Ay, mai, con esa actitud te trepas aquí" },
+      { time: 131, text: "No vo'a apagar la luz, pa' verte encima" },
+      { time: 136, text: "Me dejas sin podere'" }
+    ],
     spotifyUrl: "https://open.spotify.com/track/1pA3sCCfztmO0zLHcbzutW?si=539ad7ec74f34d9e",
     type: "single",
     date: '2026-07-19T00:00:00Z'
@@ -792,7 +831,34 @@ export const initialSongs = [
     title: "NADIE MAS!",
     artist: "NSQK",
     cover: sisifoCover,
+    audio: nadieMasAudio,
     note: "por que eres tu, no quiero a nadie mas",
+    lyrics: [
+      { time: 6, text: "Do you think about me?" },
+      { time: 11, text: "Dime qué está pasando, ¿no lo detestas?" },
+      { time: 17, text: "Durmiendo en la misma cama con la misma almohada" },
+      { time: 22, text: "Y no te acercas" },
+      { time: 26, text: "Nubes de llanto, hay luna llena" },
+      { time: 31, text: "Y llevas la misma hoodie verde con la misma cara puesta" },
+      { time: 38, text: "Pero esa hoodie huele a mí" },
+      { time: 43, text: "Y yo sé lo que te hace sentir" },
+      { time: 48, text: "Lo mismo que siento" },
+      { time: 52, text: "Cuando te veo a ti, cuando te veo a ti" },
+      { time: 58, text: "Cuatro días sin hablar" },
+      { time: 63, text: "Sin decirte 'buenos días' al despertar" },
+      { time: 69, text: "Eso me hace mal" },
+      { time: 75, text: "Porque eres tú, no quiero a nadie más" },
+      { time: 81, text: "Porque eres tú, no quiero a nadie más" },
+      { time: 87, text: "Porque eres tú, no quiero a nadie más" },
+      { time: 93, text: "Porque eres tú, no quiero a nadie más" },
+      { time: 99, text: "No quiero a nadie más" },
+      { time: 105, text: "Es que eres tú, no quiero a nadie más" },
+      { time: 111, text: "Bebé, bebé, bebé, bebé" },
+      { time: 117, text: "Es que eres tú, no quiero a nadie más" },
+      { time: 123, text: "Bebé, bebé, bebé, bebé" },
+      { time: 129, text: "Es que eres tú, no quiero a nadie más" },
+      { time: 135, text: "Sí, no quiero a nadie más" }
+    ],
     spotifyUrl: "https://open.spotify.com/track/0HWyOfh3Q08UreN155KmRZ?si=0f26b4fe40f5491a",
     type: "single",
     date: '2026-07-19T00:00:00Z'
@@ -855,9 +921,49 @@ export const initialSongs = [
     title: "BIMEL.",
     artist: "Álvaro Díaz",
     cover: omakaseCover,
+    audio: bimelAudio,
     type: "single",
     date: '2026-07-19T00:00:00Z',
-    note: "Tu te ve' bien, pero conmigo te veria' mejor", 
+    note: "Tu te ve' bien, pero conmigo te veria' mejor",
+    lyrics: [
+      { time: 0, text: "¿Cómo es que hace?" },
+      { time: 3, text: "Dime como a qué hora quiere' que por ti pase" },
+      { time: 8, text: "¿Cómo es que hace?" },
+      { time: 11, text: "Dime como a qué hora quiere' que por ti pase, baby" },
+      { time: 16, text: "Tú te ves tan bien, tú te ves tan bien, tú te ves tan bien" },
+      { time: 22, text: "Wow, wow, wow" },
+      { time: 26, text: "Tú te ves tan bien, tú te ves tan bien, tú te ves tan bien" },
+      { time: 32, text: "So, dime qué tengo que hacer" },
+      { time: 37, text: "Pa' darte una vuelta en el Bimmer" },
+      { time: 41, text: "Y pa' hacerte mi baby" },
+      { time: 45, text: "Shorty, dime" },
+      { time: 48, text: "Que esos ojitos me tienen como un Beyblade" },
+      { time: 53, text: "Te sale' por el sunroof pa' que todo' te miren" },
+      { time: 58, text: "¿Qué tengo que hacer pa' que sea' mi baby?" },
+      { time: 64, text: "Baby, ah, pool party en el rooftop" },
+      { time: 69, text: "Tú dime el plan y me apunto" },
+      { time: 73, text: "Estoy cansa'o de verte con estos cabrones sin gusto" },
+      { time: 78, text: "Y tú te roba' la atención, pa' las demás no es ni justo" },
+      { time: 83, text: "Con esos ojitos chiquitito' como Taiwán" },
+      { time: 88, text: "Shorty está vola' como Air Force One" },
+      { time: 92, text: "Si me dejas, yo te visto de Kim Jones y de Goyard" },
+      { time: 97, text: "Cuando esté lejo' me besa' por el phone como Soulja" },
+      { time: 102, text: "Y nos grabamo' pa' darle replay, baby, cuando esté lejo'" },
+      { time: 108, text: "De ti no quiero estar, dime qué hacemo'" },
+      { time: 113, text: "Tú te ve' bien, pero conmigo te vería' mejor" },
+      { time: 119, text: "Dime, shorty, ¿cómo está'?" },
+      { time: 124, text: "Yo sé que quizás ante' no te trataron como tú merecía'" },
+      { time: 130, text: "Tú te ve' bien, pero conmigo te vería' mejor" },
+      { time: 136, text: "Y no es casualidad" },
+      { time: 140, text: "'Toy aquí pa' cambiarte to' eso" },
+      { time: 145, text: "Y darno' un blunt despué' de hacerlo, baby" },
+      { time: 151, text: "Y darte una vuelta en el Bimmer" },
+      { time: 156, text: "Y pa' hacerte mi baby" },
+      { time: 160, text: "Shorty, dime" },
+      { time: 163, text: "Que esos ojitos me tienen como un Beyblade" },
+      { time: 168, text: "Te sale' por el sunroof pa' que todo' te miren" },
+      { time: 173, text: "¿Qué tengo que hacer pa' que sea' mi baby?" }
+    ],
     spotifyUrl: "https://open.spotify.com/track/2KpWqlm7ceW9erFeHFvCNP?si=71fcfba1150a4634"
   },
   {
@@ -868,44 +974,7 @@ export const initialSongs = [
     audio: spacexxxAudio,
     type: "single",
     date: '2026-07-19T00:00:00Z',
-    note: "pensando en ti pensando en ti to el dia, toa despeina' con una t-shirt mia", 
-    spotifyUrl: "https://open.spotify.com/track/3fQc7Ca6xCOeNEKvtuRhUN?si=b354b7ea48f942b7"
-  },
-  {
-    id: "inarow62",
-    title: "INAROW62.",
-    artist: "Álvaro Díaz",
-    cover: omakaseCover,
-    audio: inarowAudio,
-    type: "single",
-    date: '2026-07-19T00:00:00Z',
-    note: "Tus ojitos chinos, mami, siempre quiero, Si, eso es lo que quiero", 
-    lyrics: [
-      { time: 0, text: "Tus ojitos chinos" },
-      { time: 3, text: "Mami, siempre quiero" },
-      { time: 6, text: "Sí, eso es lo que quiero" }
-    ],
-    spotifyUrl: "https://open.spotify.com/track/5Yhti6baaZnDyzehjTuAwZ?si=5fd36777e4cc4198"
-  },
-  {
-    id: "nopodemosseramigos",
-    title: "NO PODEMOS SER AMIGOS",
-    artist: "Álvaro Díaz",
-    cover: omakaseCover,
-    type: "single",
-    date: '2026-08-05T00:00:00Z',
-    note: "y si pudiera escoger mis sueños, yo soñaria contigo namas", 
-    spotifyUrl: ""
-  },
-  {
-    id: "yteolvidaste-cupido-alvarodiaz",
-    title: "Y te olvidaste (con Alvaro Diaz)",
-    artist: "cupido",
-    cover: yTeOlvidasteCover,
-    audio: yTeOlvidasteAudio,
-    type: "single",
-    date: '2026-08-05T00:00:00Z',
-    note: "bebé-bebé vo'a hablarte claro, mi memoria es borrosa pero aún no te he olvidado",
+    note: "pensando en ti pensando en ti to el dia, toa despeina' con una t-shirt mia",
     lyrics: [
       { time: 0.32, text: "Lo' ojos cerrao'" },
       { time: 2.72, text: "Tengo to tu cuerpo ya memorizao" },
@@ -950,6 +1019,124 @@ export const initialSongs = [
       { time: 153.29, text: "Mami, nadie más que tú" },
       { time: 158.83, text: "Mami, nadie más que tú" }
     ],
+    spotifyUrl: "https://open.spotify.com/track/3fQc7Ca6xCOeNEKvtuRhUN?si=b354b7ea48f942b7"
+  },
+  {
+    id: "inarow62",
+    title: "INAROW62.",
+    artist: "Álvaro Díaz",
+    cover: omakaseCover,
+    audio: inarowAudio,
+    type: "single",
+    date: '2026-07-19T00:00:00Z',
+    note: "Tus ojitos chinos, mami, siempre quiero, Si, eso es lo que quiero", 
+    lyrics: [
+      { time: 20, text: "Tú no ere' real, tú caíste 'el cielo" },
+      { time: 25, text: "Pa' mí sale el sol siempre que te veo" },
+      { time: 30, text: "Vamo' a encerrarno', mis plane' cancelo" },
+      { time: 35, text: "Que estoy pa' driftear por tu cuerpo entero" },
+      { time: 40, text: "Te llevo pa' casa, te presento a abuelo" },
+      { time: 45, text: "Pa' que te haga jugo, que ella hablé primero" },
+      { time: 50, text: "Estar sin tus besos, eso sí da miedo" },
+      { time: 55, text: "Tus ojitos chinos, mami, siempre quiero" },
+      { time: 60, text: "Quiero, quiero, quiero, quiero, quiero, quiero" },
+      { time: 65, text: "Sí, eso es lo que quiero" },
+      { time: 70, text: "Ponte de ladito, quédate sin na'" },
+      { time: 75, text: "Dile a todito' que ese es mi lunar" },
+      { time: 80, text: "Y es que en tus labio' es que yo quiero estar" },
+      { time: 85, text: "Ese es mi lugar" },
+      { time: 90, text: "Quédate un rato má'" },
+      { time: 95, text: "Te vo'a cuidar como un bodyguard" },
+      { time: 100, text: "Un ratito má'" },
+      { time: 105, text: "Siempre quiero un ratito, un ratito má'" },
+      { time: 110, text: "Quédate un rato má'" },
+      { time: 115, text: "Te vo'a cuidar como un bodyguard" },
+      { time: 120, text: "Un ratito má'" },
+      { time: 125, text: "Siempre quiero un ratito, un ratito má'" },
+      { time: 135, text: "En los días oscuro' tu lunita estuvo" },
+      { time: 140, text: "A tu la'o seguro me sentía yo" },
+      { time: 145, text: "Viviendo una peli teniendo tu amor" },
+      { time: 150, text: "Un atardecer que me quitó el dolor" },
+      { time: 155, text: "Y cuando to' el mundo se viró" },
+      { time: 160, text: "Tú dijiste: 'No, yo me quedo aquí'" },
+      { time: 165, text: "Por eso en mi cora siempre estás ahí" },
+      { time: 170, text: "Siempre estás ahí, bebé" },
+      { time: 175, text: "Y viendo poco a poco más tu cara" },
+      { time: 180, text: "Se me olvidó que dolió decir 'sayonara'" },
+      { time: 185, text: "To' fue de cora, mami, no me debe' nada" },
+      { time: 190, text: "Mami, no me debe' nada, mami, solo" },
+      { time: 195, text: "Quédate un rato má'" },
+      { time: 200, text: "Te vo'a cuidar como un bodyguard" },
+      { time: 205, text: "Un ratito má'" },
+      { time: 210, text: "Siempre quiero un ratito, un ratito má'" }
+    ],
+    spotifyUrl: "https://open.spotify.com/track/5Yhti6baaZnDyzehjTuAwZ?si=5fd36777e4cc4198"
+  },
+  {
+    id: "nopodemosseramigos",
+    title: "NO PODEMOS SER AMIGOS",
+    artist: "Álvaro Díaz",
+    cover: omakaseCover,
+    audio: noPodemosSerAmigosAudio,
+    type: "single",
+    date: '2026-08-05T00:00:00Z',
+    note: "y si pudiera escoger mis sueños, yo soñaria contigo namas", 
+    lyrics: [
+      { time: 5, text: "Aunque te haga munchar, jajajaja" },
+      { time: 10, text: "Jajaja, wait" },
+      { time: 15, text: "Y si pudiera escoger mis sueño'" },
+      { time: 20, text: "Yo soñaría contigo na' má'" },
+      { time: 25, text: "Mami, yo he trata'o de pichar to' este tiempo" },
+      { time: 30, text: "Pero me pregunto dónde es que tú está'" },
+      { time: 35, text: "Y si pudiera escoger mis sueño' (Escoger mis sueño')" },
+      { time: 40, text: "Yo soñaría contigo na' má' (Contigo na' má')" },
+      { time: 45, text: "Mami, yo he trata'o de pichar to' este tiempo (To' este tiempo)" },
+      { time: 50, text: "Pero me haces falta y esa es la verdad (Ey, yeah, ey)" },
+      { time: 55, text: "Quiero que me digas que me extraña'" },
+      { time: 60, text: "Ey, yeah, ey, yeah-yeah (Escucha)" },
+      { time: 65, text: "Quiero que me digas que me extraña'" },
+      { time: 70, text: "Ey, yeah-yeah-yeah (Escucha)" },
+      { time: 75, text: "Y que a pesar de to', a pesar de to' (To')" },
+      { time: 80, text: "Todavía piensa' en nosotros do' (Do')" },
+      { time: 85, text: "Que eso de decir 'adiós' siempre fue un error" },
+      { time: 90, text: "Y aunque sea un cantito, tengo de tu corazón" },
+      { time: 95, text: "No sabes que miro el phone en la noche" },
+      { time: 100, text: "Imaginando que eres tú la que me está llamando pa' volver" },
+      { time: 105, text: "Que te arrepiente' de alejarte" },
+      { time: 110, text: "Y aunque sabe' que es tarde, me preguntas si te quiero ver" },
+      { time: 115, text: "Le llegué con flores a tu front door (Front door)" },
+      { time: 120, text: "No hice na' y hasta te pedí perdón (Perdón)" },
+      { time: 125, text: "Tú solo querías ponerme a competir (Nah)" },
+      { time: 130, text: "Y yo soy demasia'o pa' esa mierda, nena" },
+      { time: 135, text: "Te cegaste, pero con el tiempo verás" },
+      { time: 140, text: "Que este amor que te di no te lo da cualquiera" },
+      { time: 145, text: "Contigo quería el mundo, pa' ti solo fui uno má'" },
+      { time: 150, text: "¿Cómo quieres que no me duela?" },
+      { time: 155, text: "Si este amor se muere (Se muere)" },
+      { time: 160, text: "Que no se te olvide quién ere' (Quién ere')" },
+      { time: 165, text: "Nadie te quiere como el nene (Nene)" },
+      { time: 170, text: "Espero que te desvele'" },
+      { time: 175, text: "Pensando en mí y me llame' diciéndome que me extraña'" },
+      { time: 180, text: "Escucha" },
+      { time: 185, text: "Quiero que me diga' que me extraña'" },
+      { time: 190, text: "Ey, yeah-yeah-yeah-yeah (Escucha)" },
+      { time: 195, text: "Quiero que me di-di-di-di-di-di-di—" },
+      { time: 200, text: "Dime" },
+      { time: 205, text: "¿Cómo le haces pa' no sentir na'?" },
+      { time: 210, text: "Ya no puedo ser tu amigo" },
+      { time: 215, text: "Si no te paro de pensar" }
+    ],
+    spotifyUrl: ""
+  },
+  {
+    id: "yteolvidaste-cupido-alvarodiaz",
+    title: "Y te olvidaste (con Alvaro Diaz)",
+    artist: "cupido",
+    cover: yTeOlvidasteCover,
+    audio: yTeOlvidasteAudio,
+    type: "single",
+    date: '2026-08-05T00:00:00Z',
+    note: "bebé-bebé vo'a hablarte claro, mi memoria es borrosa pero aún no te he olvidado",
     spotifyUrl: "https://open.spotify.com/track/4jVjA3h13D66o7kXZzE2w7" // Fallback if applicable
   }
 ];

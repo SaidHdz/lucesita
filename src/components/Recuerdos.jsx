@@ -4,11 +4,11 @@ import { ArrowLeft, PlayCircle, X } from 'lucide-react';
 import dbtmCover from '../assets/dbtm.jpg';
 
 const memories = [
-  { id: 1, type: 'image', src: dbtmCover, title: 'El principio', date: 'Julio 2026', description: 'El día en que todo comenzó y nuestras historias se cruzaron por primera vez.' },
-  { id: 2, type: 'video', src: dbtmCover, title: 'Aquel atardecer', date: 'Agosto 2026', description: 'Un atardecer perfecto que se quedó grabado para siempre en la memoria.' },
-  { id: 3, type: 'image', src: dbtmCover, title: 'Las risas', date: 'Septiembre 2026', description: 'Momentos espontáneos donde simplemente no podíamos dejar de sonreír.' },
-  { id: 4, type: 'video', src: dbtmCover, title: 'Nuestro viaje', date: 'Octubre 2026', description: 'Una aventura inolvidable lejos del ruido de la ciudad.' },
-  { id: 5, type: 'image', src: dbtmCover, title: 'Inolvidable', date: 'Noviembre 2026', description: 'Para siempre guardado en el tiempo como uno de los mejores días.' },
+  { id: 1, type: 'image', src: dbtmCover, title: 'El principio', date: 'Julio 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { id: 2, type: 'video', src: dbtmCover, title: 'Aquel atardecer', date: 'Agosto 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { id: 3, type: 'image', src: dbtmCover, title: 'Las risas', date: 'Septiembre 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { id: 4, type: 'video', src: dbtmCover, title: 'Nuestro viaje', date: 'Octubre 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { id: 5, type: 'image', src: dbtmCover, title: 'Inolvidable', date: 'Noviembre 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
 ];
 
 const MemoryCard = ({ memory, scrollContainer, onClick }) => {

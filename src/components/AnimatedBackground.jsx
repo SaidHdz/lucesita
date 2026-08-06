@@ -5,14 +5,24 @@ const AnimatedBackground = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Disable heavy mouse tracking on mobile
+    if (window.innerWidth < 768) return;
+    
+    let animationFrameId;
+    
     const updateMousePosition = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      // Use requestAnimationFrame to throttle state updates for better performance
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(() => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      });
     };
     
-    window.addEventListener('mousemove', updateMousePosition);
+    window.addEventListener('mousemove', updateMousePosition, { passive: true });
     
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
