@@ -1357,6 +1357,14 @@
         "moodColor": "#4A148C"
       },
       {
+        "id": "alvarodiaz-yoko",
+        "title": " YOKO.",
+        "quote": "\"soy un tonto y mil veces me equivoco, te quiero siempre a mi ladito como yoko\"",
+        "interpretation": "Soy un tonto y mil veces me equivoco, te quiero siempre a mi ladito como Yoko.",
+        "mood": "amor",
+        "moodColor": "#C2185B"
+      },
+      {
         "id": "ff7d3deb-f1f4-4a94-86a2-3401396ac644",
         "title": "Ola",
         "quote": "Esta es mas una reflexion final a todo este proyecto ",

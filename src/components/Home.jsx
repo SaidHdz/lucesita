@@ -4,7 +4,8 @@ import FoldText from './FoldText';
 import BlurText from './BlurText';
 import Plasma from './Plasma';
 import Counter from './Counter';
-import homeCover from '../assets/WhatsApp Image 2026-08-07 at 2.02.22 AM.jpeg';
+import snoopyCover from '../assets/snoopy.jpg';
+const homeCover = snoopyCover;
 
 const PremiumCard = ({ 
   image, 
