@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Heart } from 'lucide-react';
 import SplitText from './SplitText';
 
+import snoopyCover from '../assets/snoopy.jpg';
+
 const Hero = () => {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-bg">
@@ -22,10 +24,9 @@ const Hero = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "backOut" }}
-          className="mx-auto mb-8 w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100"
+          className="mx-auto mb-8 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white/20 shadow-[0_0_40px_rgba(176,136,249,0.3)] shrink-0"
         >
-          {/* High-end Snoopy Placeholder */}
-          <Heart className="text-accent w-10 h-10 animate-pulse" strokeWidth={1.5} />
+          <img src={snoopyCover} alt="Snoopy" className="w-full h-full object-cover" />
         </motion.div>
 
         <h1 className="text-5xl md:text-7xl font-serif text-text mb-6 tracking-tight flex flex-col items-center justify-center">

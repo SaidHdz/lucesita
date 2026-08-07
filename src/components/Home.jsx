@@ -145,7 +145,16 @@ const Home = ({ onViewChange }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-[#050505]/40 to-[#050505]"></div>
       </div>
 
-      <div className="z-10 w-full max-w-5xl text-center mb-24 mt-8">
+      <div className="z-10 w-full max-w-5xl text-center mb-24 mt-8 flex flex-col items-center">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8 w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-white/25 shadow-[0_0_50px_rgba(176,136,249,0.35)] shrink-0"
+        >
+          <img src={snoopyCover} alt="Snoopy" className="w-full h-full object-cover" />
+        </motion.div>
+
         <BlurText
           text="Feliz Cumpleaños"
           delay={150}
