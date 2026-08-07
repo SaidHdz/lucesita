@@ -2,13 +2,62 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, PlayCircle, X } from 'lucide-react';
 import dbtmCover from '../assets/dbtm.jpg';
+import llamadaImg from '../assets/recuerdos/llamada.jpeg';
+import galletasImg from '../assets/recuerdos/galletas.jpeg';
+import frappeImg from '../assets/recuerdos/frappe.jpeg';
+import presaVid from '../assets/recuerdos/unapresa.mp4';
+import perroImg from '../assets/recuerdos/unperro.jpeg';
+import besoImg from '../assets/recuerdos/beso.jpeg';
+import peakImg from '../assets/recuerdos/jugamospeak.jpeg';
+import peakVid from '../assets/recuerdos/peak.mp4';
+import duendeVid from '../assets/recuerdos/duende.mp4';
+import ultimaImg from '../assets/recuerdos/ultima.jpeg';
 
 const memories = [
-  { id: 1, type: 'image', src: dbtmCover, title: 'El principio', date: 'Julio 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-  { id: 2, type: 'video', src: dbtmCover, title: 'Aquel atardecer', date: 'Agosto 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-  { id: 3, type: 'image', src: dbtmCover, title: 'Las risas', date: 'Septiembre 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-  { id: 4, type: 'video', src: dbtmCover, title: 'Nuestro viaje', date: 'Octubre 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-  { id: 5, type: 'image', src: dbtmCover, title: 'Inolvidable', date: 'Noviembre 2026', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { 
+    id: 1, 
+    type: 'video', 
+    src: duendeVid, 
+    modalMedia: [duendeVid, llamadaImg],
+    title: 'la primera vez que hablamos por telefono y jugamos', 
+    date: 'Nuestro inicio', 
+    description: 'aun me acuerdo ese primer dia que hablamos, y jugamos muchos juegos, me acuerdo mas del de los duendes jej' 
+  },
+  { 
+    id: 2, 
+    type: 'image', 
+    src: galletasImg, 
+    modalMedia: [galletasImg, frappeImg],
+    title: 'salida', 
+    date: 'Un día inolvidable', 
+    description: 'vaya salida, este dia paso de todoo, llegue tarde, comimos comidita china, aun recuerdo estar nervioso por verte y ver lo linda que eras, fuimos a comer comida china, despues caminamos mucho rato, compramos unas galletas de la fortuna, me acuerdo deq lo leiste y yo bn sorprendido pq estaba en ingles y tu: atras esta en español JAJAJA\ndespues fuimos por unos frappes, y yo con una tos del diablo, pero aun asi, queria estar contigo y asi\ndespues escuchamos data camino a tu casa, llegamos TARDE despues de que casi nos atropellan, se me apago el carro y bla bla\naun me acuerdo escucharte decir "te quiero" y yo bn feliz y nervioso y asi' 
+  },
+  { 
+    id: 3, 
+    type: 'video', 
+    src: presaVid, 
+    modalMedia: [presaVid, perroImg, besoImg],
+    title: 'un abrazo que quisiera que durara mas', 
+    date: 'Ese momento', 
+    description: 'este dia hicimos mucho, te di un besito en la frente, cosa deq qn sabe pq pero me senti deq debia hacerlo, perdon, despues pase por ti fuimos a tu casa y ante de despedirnos nos quedamos abrazados, mucho, ojala hubiera durado mas tiempo' 
+  },
+  { 
+    id: 4, 
+    type: 'video', 
+    src: peakVid, 
+    modalMedia: [peakVid, peakImg],
+    title: 'jugamos peak', 
+    date: 'Noches de juego', 
+    description: 'esta captura fue una donde jugamos peak y hablamos cositas, te quiero, ojala poder jugar algo con mi calabacita de nuevo' 
+  },
+  { 
+    id: 5, 
+    type: 'image', 
+    src: ultimaImg, 
+    title: 'la ultima vez que nos vimos', 
+    date: 'Un hasta luego', 
+    description: 'bueno, y esta fue nuestra ultima salida, para bien o para mal, yo aun te extraño y si esta en ti volver a hablar o intentar algo, yo acepto, sabes que yo siempre acepto' 
+  },
 ];
 
 const MemoryCard = ({ memory, scrollContainer, onClick }) => {
@@ -147,23 +196,27 @@ const Recuerdos = ({ onBack }) => {
                 <X className="w-5 h-5" />
               </button>
               
-              <div className="relative w-full h-[50vh] md:h-[60vh] flex-shrink-0 bg-black/50">
-                {selectedMemory.type === 'video' ? (
-                  <video 
-                    src={selectedMemory.src} 
-                    poster={selectedMemory.src}
-                    autoPlay 
-                    controls
-                    playsInline
-                    className="w-full h-full object-contain"
-                  />
-                ) : (
-                  <img 
-                    src={selectedMemory.src} 
-                    alt={selectedMemory.title} 
-                    className="w-full h-full object-cover" 
-                  />
-                )}
+              <div className="relative w-full h-[50vh] md:h-[60vh] flex-shrink-0 bg-black/50 overflow-x-auto snap-x snap-mandatory scrollbar-hide flex">
+                {(selectedMemory.modalMedia || [selectedMemory.src]).map((mediaSrc, idx) => {
+                  const isVideo = mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm');
+                  return isVideo ? (
+                    <video 
+                      key={idx}
+                      src={mediaSrc}
+                      autoPlay={idx === 0}
+                      controls
+                      playsInline
+                      className="min-w-full h-full object-contain snap-center flex-shrink-0 bg-black/40"
+                    />
+                  ) : (
+                    <img 
+                      key={idx}
+                      src={mediaSrc} 
+                      alt={`${selectedMemory.title} ${idx + 1}`} 
+                      className="min-w-full h-full object-cover snap-center flex-shrink-0" 
+                    />
+                  );
+                })}
                 {/* Subtle gradient overlay to blend image bottom with the text section */}
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
               </div>
@@ -175,7 +228,7 @@ const Recuerdos = ({ onBack }) => {
                 <h2 className="text-white font-sans font-bold text-2xl md:text-4xl mb-4 leading-tight">
                   {selectedMemory.title}
                 </h2>
-                <p className="text-white/80 font-serif leading-relaxed text-sm md:text-base">
+                <p className="text-white/80 font-serif leading-relaxed text-sm md:text-base whitespace-pre-wrap">
                   {selectedMemory.description}
                 </p>
               </div>

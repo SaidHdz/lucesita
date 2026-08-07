@@ -4,7 +4,7 @@ import FoldText from './FoldText';
 import BlurText from './BlurText';
 import Plasma from './Plasma';
 import Counter from './Counter';
-import dbtmCover from '../assets/dbtm.jpg';
+import homeCover from '../assets/WhatsApp Image 2026-08-07 at 2.02.22 AM.jpeg';
 
 const PremiumCard = ({ 
   image, 
@@ -72,14 +72,6 @@ const PremiumCard = ({
           />
           {/* Gradient fading into the glass background */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-          
-          {/* Carousel Dots */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-            <div className="w-1.5 h-1.5 rounded-full bg-white" />
-            <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-            <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-          </div>
         </div>
 
         {/* Bottom Half: Content */}
@@ -190,7 +182,7 @@ const Home = ({ onViewChange }) => {
         
         {/* Card 1: Rokola */}
         <PremiumCard 
-          image={dbtmCover}
+          image={homeCover}
           title="tu playlist"
           price="Play"
           description="una playlist que hice para ti, de canciones que me gustan y me hacen recordarnos, aun que usar spotify es muy facil asi que mejor una web, no? te quiero"
@@ -203,7 +195,7 @@ const Home = ({ onViewChange }) => {
 
         {/* Card 2: Recuerdos */}
         <PremiumCard 
-          image={dbtmCover}
+          image={homeCover}
           title="Recuerdos"
           price="Galería"
           description="alguna de nuestras fotos y nuestros momentos juntos, serian mas, pero estubimos tal felices que el tomar fotos pasaba a segundo plano"
@@ -216,7 +208,7 @@ const Home = ({ onViewChange }) => {
 
         {/* Card 3: Wrapped */}
         <PremiumCard 
-          image={dbtmCover}
+          image={homeCover}
           title="Nuestro Wrapped"
           price="Top"
           description="quien dijo mas te quiero? quien hababa primero o cual emoji usamos mas? solo entra para descubrirlo"

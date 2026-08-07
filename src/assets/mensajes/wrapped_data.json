@@ -1,0 +1,203 @@
+{
+  "metrics": {
+    "total": 36216,
+    "byUser": {
+      "Said >|<": 19740,
+      "lucesita 🦢": 16476
+    },
+    "activeDays": 61,
+    "avgMsgLength": {
+      "Said >|<": 18,
+      "lucesita 🦢": 16
+    }
+  },
+  "habits": {
+    "hourlyDistribution": {
+      "Said >|<": [
+        2160,
+        1742,
+        1096,
+        252,
+        106,
+        269,
+        68,
+        130,
+        261,
+        411,
+        507,
+        823,
+        820,
+        949,
+        1027,
+        627,
+        832,
+        734,
+        933,
+        951,
+        1233,
+        1062,
+        1547,
+        1200
+      ],
+      "lucesita 🦢": [
+        1630,
+        1477,
+        976,
+        238,
+        75,
+        201,
+        57,
+        105,
+        222,
+        370,
+        381,
+        657,
+        672,
+        768,
+        895,
+        464,
+        691,
+        706,
+        663,
+        868,
+        1014,
+        955,
+        1411,
+        980
+      ]
+    },
+    "avgResponseTimeMin": {
+      "Said >|<": 2.734144845504057,
+      "lucesita 🦢": 4.700728306129247
+    },
+    "conversationStarters": {
+      "Said >|<": 31,
+      "lucesita 🦢": 12
+    },
+    "dayOfWeek": [
+      5050,
+      4630,
+      3941,
+      9440,
+      5785,
+      3153,
+      4217
+    ],
+    "months": [
+      0,
+      0,
+      0,
+      22588,
+      6587,
+      7041,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "language": {
+    "topEmojis": {
+      "overall": [
+        "😭",
+        "💗",
+        "🔥",
+        "🗣",
+        "💔"
+      ],
+      "byUser": {
+        "Said >|<": [
+          "😭",
+          "🔥",
+          "🗣",
+          "💔",
+          "😿"
+        ],
+        "lucesita 🦢": [
+          "😭",
+          "💗",
+          "💔",
+          "😞",
+          "👏"
+        ]
+      }
+    },
+    "topWords": {
+      "overall": [
+        {
+          "text": "sabes",
+          "value": 776
+        },
+        {
+          "text": "bien",
+          "value": 727
+        },
+        {
+          "text": "asi",
+          "value": 490
+        },
+        {
+          "text": "oye",
+          "value": 480
+        },
+        {
+          "text": "voy",
+          "value": 478
+        },
+        {
+          "text": "mucho",
+          "value": 473
+        },
+        {
+          "text": "bueno",
+          "value": 464
+        },
+        {
+          "text": "quiero",
+          "value": 455
+        },
+        {
+          "text": "ola",
+          "value": 401
+        },
+        {
+          "text": "estoy",
+          "value": 389
+        }
+      ],
+      "byUser": {
+        "Said >|<": [
+          "sabes",
+          "bien",
+          "asi"
+        ],
+        "lucesita 🦢": [
+          "así",
+          "ola",
+          "mucho"
+        ]
+      }
+    },
+    "laughTypes": {
+      "jaja": 3387,
+      "jsjs": 1372,
+      "xd": 3,
+      "lmao": 0
+    },
+    "longestWord": "basjajjajajajjajjajajajajab"
+  },
+  "emotion": {
+    "affectionCount": {
+      "Said >|<": 253,
+      "lucesita 🦢": 29
+    },
+    "firstMessage": {
+      "sender": "Said >|<",
+      "content": "La mejor canción que has subido a notas 🔥🔥",
+      "timestamp": 1775074556034,
+      "date": "4/1/2026, 3:15:56 PM"
+    }
+  }
+}

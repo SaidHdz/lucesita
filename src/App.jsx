@@ -66,6 +66,19 @@ function App() {
             <Recuerdos onBack={() => setCurrentView('home')} />
           </motion.div>
         )}
+
+        {currentView === 'wrapped' && (
+          <motion.div
+            key="wrapped"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 z-20 bg-[#050505]"
+          >
+            <Wrapped onBack={() => setCurrentView('home')} />
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );
