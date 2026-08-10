@@ -2,10 +2,10 @@ const fs = require('fs');
 
 const data = JSON.parse(fs.readFileSync('src/assets/DATOS.json', 'utf8'));
 
-// Replace "richelle" with "luz" in a string (case insensitive)
+// Format name in a string
 const replaceName = (str) => {
   if (!str) return str;
-  return str.replace(/richelle/gi, 'Luz');
+  return str;
 };
 
 let allSongs = [];

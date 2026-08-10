@@ -7,6 +7,8 @@ import Buzon from './components/Buzon';
 import Wrapped from './components/Wrapped';
 import AnimatedBackground from './components/AnimatedBackground';
 
+import FloatingPlayer from './components/FloatingPlayer';
+
 function App() {
   const [currentView, setCurrentView] = useState('home');
 
@@ -48,7 +50,7 @@ function App() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.02 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 z-20 bg-[#1a1811]" // Slightly yellowish dark bg
+            className="absolute inset-0 z-20 bg-[#050505]"
           >
             <Buzon onBack={() => setCurrentView('home')} />
           </motion.div>
@@ -80,6 +82,9 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Floating Music Player across the entire web app except when in Rokola view */}
+      {currentView !== 'rokola' && <FloatingPlayer />}
     </div>
   );
 }

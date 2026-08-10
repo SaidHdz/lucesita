@@ -5,6 +5,8 @@ import BlurText from './BlurText';
 import Plasma from './Plasma';
 import Counter from './Counter';
 import snoopyCover from '../assets/snoopy.jpg';
+import woodstockCover from '../assets/woodstock.jpg';
+import cartasCover from '../assets/WhatsApp Image 2026-08-07 at 2.02.22 AM.jpeg';
 const homeCover = snoopyCover;
 
 const PremiumCard = ({ 
@@ -188,7 +190,7 @@ const Home = ({ onViewChange }) => {
         </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8 z-10 w-full max-w-6xl pb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 z-10 w-full max-w-7xl pb-8">
         
         {/* Card 1: Rokola */}
         <PremiumCard 
@@ -227,6 +229,19 @@ const Home = ({ onViewChange }) => {
           index={2}
           accentColor="rgba(136, 200, 249, 0.2)"
           onClick={() => onViewChange('wrapped')}
+        />
+
+        {/* Card 4: Cartas */}
+        <PremiumCard 
+          image={cartasCover}
+          title="Cartas para mi calabaza"
+          price="Notas"
+          description="algunas de las cartas que te escribí, espero que te gusten, disculpa la tardanza."
+          badges={["Mensajes", "Especial", "Cartas"]}
+          buttonText="Abrir Cartas"
+          index={3}
+          accentColor="rgba(176, 136, 249, 0.2)"
+          onClick={() => onViewChange('cartas')}
         />
 
       </div>
