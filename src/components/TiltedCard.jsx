@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'motion/react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './TiltedCard.css';
 
 const springValues = {
@@ -18,15 +18,15 @@ export default function TiltedCard({
   imageWidth = '300px',
   scaleOnHover = 1.1,
   rotateAmplitude = 14,
-  showMobileWarning = true,
+  showMobileWarning = false,
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false
 }) {
   const ref = useRef(null);
 
-  const x = useMotionValue();
-  const y = useMotionValue();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
   const rotateX = useSpring(useMotionValue(0), springValues);
   const rotateY = useSpring(useMotionValue(0), springValues);
   const scale = useSpring(1, springValues);

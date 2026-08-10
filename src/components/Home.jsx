@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { Sparkles } from 'lucide-react';
+import VisitorCounter from './VisitorCounter';
 import FoldText from './FoldText';
 import BlurText from './BlurText';
 import Plasma from './Plasma';
@@ -8,6 +10,12 @@ import snoopyCover from '../assets/snoopy.jpg';
 import woodstockCover from '../assets/woodstock.jpg';
 import cartasCover from '../assets/WhatsApp Image 2026-08-07 at 2.02.22 AM.jpeg';
 const homeCover = snoopyCover;
+
+const springValues = {
+  damping: 30,
+  stiffness: 100,
+  mass: 2
+};
 
 const PremiumCard = ({ 
   image, 
@@ -18,12 +26,17 @@ const PremiumCard = ({
   buttonText,
   onClick,
   index = 0,
-  accentColor = 'rgba(176, 136, 249, 0.15)'
+  accentColor = 'rgba(176, 136, 249, 0.15)',
+  showIGNote = false
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const [isMobile, setIsMobile] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const rotateX = useSpring(useMotionValue(0), springValues);
+  const rotateY = useSpring(useMotionValue(0), springValues);
+  const scale = useSpring(1, springValues);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -31,6 +44,34 @@ const PremiumCard = ({
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  function handleMouseMove(e) {
+    if (!ref.current || isMobile) return;
+    const rect = ref.current.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left - rect.width / 2;
+    const offsetY = e.clientY - rect.top - rect.height / 2;
+    const rotateAmplitude = 20;
+
+    const rotationX = (offsetY / (rect.height / 2)) * -rotateAmplitude;
+    const rotationY = (offsetX / (rect.width / 2)) * rotateAmplitude;
+
+    rotateX.set(rotationX);
+    rotateY.set(rotationY);
+  }
+
+  function handleMouseEnter() {
+    if (!isMobile) {
+      setIsHovered(true);
+      scale.set(1.05);
+    }
+  }
+
+  function handleMouseLeave() {
+    setIsHovered(false);
+    scale.set(1);
+    rotateX.set(0);
+    rotateY.set(0);
+  }
 
   return (
     <motion.div 
@@ -42,7 +83,7 @@ const PremiumCard = ({
         delay: index * 0.15,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="w-full max-w-sm mx-auto relative group"
+      className="w-full max-w-sm mx-auto relative group [perspective:1000px]"
     >
       {/* Subtle glow behind the card */}
       <div 
@@ -57,54 +98,69 @@ const PremiumCard = ({
 
       <motion.button
         onClick={onClick}
-        onHoverStart={() => !isMobile && setIsHovered(true)}
-        onHoverEnd={() => !isMobile && setIsHovered(false)}
-        whileHover={!isMobile ? { y: -8, scale: 1.02 } : {}}
-        whileTap={{ scale: 0.97 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-        className="relative w-full h-auto min-h-[480px] rounded-[2.5rem] bg-white/[0.07] backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.35)] flex flex-col text-left overflow-hidden border border-white/[0.12] hover:border-white/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-[border-color,box-shadow] duration-500"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          scale,
+          transformStyle: 'preserve-3d'
+        }}
+        whileTap={{ scale: 0.96 }}
+        className="relative w-full h-auto min-h-[480px] rounded-[2.5rem] bg-white/[0.07] backdrop-blur-2xl shadow-[0_12px_45px_rgba(0,0,0,0.4)] flex flex-col text-left border border-white/[0.12] hover:border-white/40 hover:shadow-[0_25px_70px_rgba(0,0,0,0.6)] transition-[border-color,box-shadow] duration-500"
       >
         {/* Top Half: Image with Gradient Fade */}
-        <div className="relative w-full h-60 shrink-0 overflow-hidden">
+        <div className="relative w-full h-60 shrink-0 overflow-hidden rounded-t-[2.5rem]" style={{ transform: 'translateZ(30px)' }}>
           <motion.img 
             src={image} 
             alt={title} 
             className="w-full h-full object-cover"
-            animate={!isMobile && isHovered ? { scale: 1.08 } : { scale: 1 }}
+            animate={!isMobile && isHovered ? { scale: 1.1 } : { scale: 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           />
           {/* Gradient fading into the glass background */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+          {/* Instagram Note speech bubble overlay */}
+          {showIGNote && (
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 flex flex-col items-center z-20 pointer-events-none" style={{ transform: 'translateZ(60px)' }}>
+              <div className="bg-white/95 text-black px-3.5 py-1.5 rounded-2xl shadow-xl border border-white/60 text-xs font-sans font-bold text-center relative mb-1.5">
+                <span>te voy a extrañar</span>
+                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[6px] border-t-white/95" />
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Bottom Half: Content */}
-        <div className="px-6 pb-6 pt-3 flex flex-col flex-1 z-10">
+        {/* Bottom Half: Content with 3D Z-Layering */}
+        <div className="px-6 pb-6 pt-3 flex flex-col flex-1 z-10" style={{ transform: 'translateZ(45px)' }}>
           {/* Title & Price Row */}
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-2" style={{ transform: 'translateZ(60px)' }}>
             <h3 className="text-white text-2xl font-bold font-sans tracking-wide">
               {title}
             </h3>
-            <div className="bg-white/[0.08] backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+            <div className="bg-white/[0.08] backdrop-blur-md px-3 py-1 rounded-full border border-white/10 shadow-md" style={{ transform: 'translateZ(70px)' }}>
               <span className="text-white/90 text-sm font-semibold">{price}</span>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-white/70 font-sans text-sm leading-relaxed mb-5">
+          <p className="text-white/70 font-sans text-sm leading-relaxed mb-5" style={{ transform: 'translateZ(40px)' }}>
             {description}
           </p>
 
           {/* Badges */}
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2 mb-6" style={{ transform: 'translateZ(65px)' }}>
             {badges.map((badge, idx) => (
-              <span key={idx} className="bg-white/[0.06] backdrop-blur-sm border border-white/10 text-white/80 text-xs px-3 py-1.5 rounded-full font-medium">
+              <span key={idx} className="bg-white/[0.08] backdrop-blur-sm border border-white/15 text-white/90 text-xs px-3 py-1.5 rounded-full font-semibold shadow-md">
                 {badge}
               </span>
             ))}
           </div>
 
-          {/* Reserve Button */}
-          <div className="w-full mt-auto py-3.5 rounded-full bg-white flex items-center justify-center shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_4px_25px_rgba(255,255,255,0.2)] transition-shadow duration-300">
+          {/* Action Button */}
+          <div className="w-full mt-auto py-3.5 rounded-full bg-white flex items-center justify-center shadow-[0_6px_25px_rgba(255,255,255,0.2)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.35)] transition-all duration-300" style={{ transform: 'translateZ(80px)' }}>
             <span className="text-black font-sans font-bold text-base tracking-wide">
               {buttonText}
             </span>
@@ -148,13 +204,37 @@ const Home = ({ onViewChange }) => {
       </div>
 
       <div className="z-10 w-full max-w-5xl text-center mb-24 mt-8 flex flex-col items-center">
+        {/* Instagram Note Profile Avatar on Home Page */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-white/25 shadow-[0_0_50px_rgba(176,136,249,0.35)] shrink-0"
+          className="mb-8 flex flex-col items-center relative group cursor-pointer"
+          onClick={() => onViewChange('cartas')}
         >
-          <img src={snoopyCover} alt="Snoopy" className="w-full h-full object-cover" />
+          {/* Floating Instagram Note Speech Bubble */}
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative bg-white/95 text-black px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-white/60 text-xs sm:text-sm font-sans font-bold text-center mb-3 group-hover:scale-105 transition-transform z-20"
+          >
+            <span className="leading-snug text-black font-sans font-bold">te voy a extrañar</span>
+            {/* Speech Bubble Tail pointing down */}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[8px] border-t-white/95" />
+          </motion.div>
+
+          {/* Circular Avatar with Instagram Gradient Ring */}
+          <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-[#b088f9] via-[#c8a2c8] to-[#88c8f9] shadow-[0_0_50px_rgba(176,136,249,0.4)] group-hover:scale-105 transition-transform duration-300">
+            <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-[#050505] relative bg-black shrink-0">
+              <img src={snoopyCover} alt="Snoopy" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+            </div>
+
+            {/* Sparkle badge */}
+            <div className="absolute bottom-1 right-1 w-7 h-7 md:w-9 md:h-9 rounded-full bg-[#b088f9] text-black flex items-center justify-center font-bold shadow-lg border-2 border-[#050505] group-hover:scale-110 transition-transform">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-black fill-black" />
+            </div>
+          </div>
         </motion.div>
 
         <BlurText
@@ -184,10 +264,13 @@ const Home = ({ onViewChange }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1 }}
-          className="text-white/60 font-serif italic text-lg md:text-xl"
+          className="text-white/60 font-serif italic text-lg md:text-xl mb-6"
         >
           te quiero mucho, no es mucho pero es un regalo con amor
         </motion.p>
+
+        {/* Live Visitor Counter */}
+        <VisitorCounter />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 z-10 w-full max-w-7xl pb-8">

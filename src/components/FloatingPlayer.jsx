@@ -17,8 +17,8 @@ const FloatingPlayer = () => {
 
   useEffect(() => {
     const checkModal = () => {
-      const modals = document.querySelectorAll('.fixed.z-50');
-      setIsModalOpen(modals.length > 0);
+      const modalBackdrop = document.querySelector('[data-modal="true"]') || document.querySelector('.bg-black\\/90');
+      setIsModalOpen(Boolean(modalBackdrop));
     };
 
     const observer = new MutationObserver(checkModal);
