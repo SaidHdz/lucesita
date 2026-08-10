@@ -506,45 +506,9 @@ const Buzon = ({ onBack }) => {
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-black tracking-tighter text-white mb-2 leading-tight">
           Cartas para mi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#b088f9] via-[#e6cfe6] to-[#88c8f9]">calabaza</span>
         </h1>
-      </motion.div>
-
-      {/* Instagram Notes Style Profile Avatar & Message Bubble */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="z-10 flex flex-col items-center mb-10 cursor-pointer group"
-        onClick={() => handleOpenLetter(0)}
-      >
-        {/* Floating Instagram Note Speech Bubble */}
-        <motion.div
-          animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative bg-white/95 text-black px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-white/60 text-xs sm:text-sm font-sans font-medium text-center max-w-[260px] sm:max-w-[320px] mb-3 group-hover:scale-105 transition-transform"
-        >
-          <p className="leading-snug text-black font-sans font-semibold text-sm sm:text-base px-2">
-            te voy a extrañar
-          </p>
-          {/* Bubble tail pointing down to avatar */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[9px] border-t-white/95" />
-        </motion.div>
-
-        {/* Profile Avatar with Instagram Gradient Ring */}
-        <div className="relative p-[3px] rounded-full bg-gradient-to-tr from-[#b088f9] via-[#c8a2c8] to-[#88c8f9] shadow-[0_0_40px_rgba(176,136,249,0.35)] group-hover:scale-105 transition-transform duration-300">
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-[#050505] relative bg-black">
-            <img src={cartasCover} alt="Foto de perfil" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-          </div>
-
-          {/* Sparkle badge */}
-          <div className="absolute bottom-1 right-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#b088f9] text-black flex items-center justify-center font-bold shadow-lg border-2 border-[#050505] group-hover:scale-110 transition-transform">
-            <Sparkles className="w-4 h-4 text-black fill-black" />
-          </div>
-        </div>
-
-        <span className="text-white/40 text-[11px] font-mono mt-2 group-hover:text-[#b088f9] transition-colors">
-          Toca para abrir cartas
-        </span>
+        <p className="text-white/60 font-sans text-base md:text-lg max-w-xl font-light leading-relaxed">
+          Algunas de las cartas que te escribí, espero que te gusten, disculpa la tardanza
+        </p>
       </motion.div>
 
       {/* Clickable Hero Banner -> Opens First Letter */}
@@ -563,11 +527,6 @@ const Buzon = ({ onBack }) => {
         />
 
         <div className="flex items-center gap-5 sm:gap-6 z-10 w-full sm:w-auto">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-white/20 shadow-[0_0_35px_rgba(176,136,249,0.25)] shrink-0 group-hover:scale-105 transition-transform duration-500">
-            <img src={cartasCover} alt="Cartas Cover" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          </div>
-
           <div className="text-left flex-1">
             <h2 className="text-white font-sans text-xl sm:text-2xl font-bold tracking-wide mb-1 flex items-center gap-2 group-hover:text-[#b088f9] transition-colors">
               Buzón de Mensajes

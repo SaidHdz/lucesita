@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import VisitorCounter from './VisitorCounter';
 import FoldText from './FoldText';
@@ -174,6 +174,8 @@ const PremiumCard = ({
 const Home = ({ onViewChange }) => {
   const containerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [tapCount, setTapCount] = useState(0);
+  const [showUnlockToast, setShowUnlockToast] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -182,9 +184,37 @@ const Home = ({ onViewChange }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  const handleSnoopyTap = () => {
+    const nextCount = tapCount + 1;
+    setTapCount(nextCount);
+
+    if (nextCount >= 7) {
+      localStorage.setItem('floating_player_unlocked', 'true');
+      window.dispatchEvent(new Event('unlock_floating_player'));
+      setShowUnlockToast(true);
+      setTimeout(() => setShowUnlockToast(false), 4000);
+      setTapCount(0);
+    }
+  };
+
   return (
     <section ref={containerRef} className="h-[100dvh] overflow-y-auto overscroll-none relative flex flex-col items-center justify-start pt-28 pb-32 px-6 md:px-12 overflow-x-hidden">
       
+      {/* 7-Tap Easter Egg Unlock Toast Notification */}
+      <AnimatePresence>
+        {showUnlockToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -30, scale: 0.9 }}
+            className="fixed top-8 left-1/2 -translate-x-1/2 z-50 bg-[#b088f9] text-black px-6 py-3 rounded-full shadow-[0_10px_35px_rgba(176,136,249,0.5)] font-bold font-sans text-xs sm:text-sm flex items-center gap-2 border border-white/40"
+          >
+            <Sparkles className="w-4 h-4 text-black fill-black" />
+            <span>¡Reproductor flotante de música desbloqueado!</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Counter />
       
       {/* Plasma Background */}
@@ -210,7 +240,7 @@ const Home = ({ onViewChange }) => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-8 flex flex-col items-center relative group cursor-pointer"
-          onClick={() => onViewChange('cartas')}
+          onClick={handleSnoopyTap}
         >
           {/* Floating Instagram Note Speech Bubble */}
           <motion.div
