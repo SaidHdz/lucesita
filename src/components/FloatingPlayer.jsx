@@ -11,18 +11,9 @@ const FloatingPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isUnlocked, setIsUnlocked] = useState(() => {
-    return localStorage.getItem('floating_player_unlocked') === 'true';
-  });
 
   const audioRef = useRef(null);
   const currentSong = initialSongs[currentIndex];
-
-  useEffect(() => {
-    const handleUnlock = () => setIsUnlocked(true);
-    window.addEventListener('unlock_floating_player', handleUnlock);
-    return () => window.removeEventListener('unlock_floating_player', handleUnlock);
-  }, []);
 
   useEffect(() => {
     const checkModal = () => {
@@ -86,7 +77,7 @@ const FloatingPlayer = () => {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  if (!isUnlocked || !currentSong || isModalOpen) return null;
+  if (!currentSong || isModalOpen) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-40 selection:bg-none">

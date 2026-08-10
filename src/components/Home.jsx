@@ -189,8 +189,8 @@ const Home = ({ onViewChange }) => {
     setTapCount(nextCount);
 
     if (nextCount >= 7) {
-      localStorage.setItem('floating_player_unlocked', 'true');
-      window.dispatchEvent(new Event('unlock_floating_player'));
+      localStorage.setItem('visitor_counter_unlocked', 'true');
+      window.dispatchEvent(new Event('unlock_visitor_counter'));
       setShowUnlockToast(true);
       setTimeout(() => setShowUnlockToast(false), 4000);
       setTapCount(0);
@@ -210,7 +210,7 @@ const Home = ({ onViewChange }) => {
             className="fixed top-8 left-1/2 -translate-x-1/2 z-50 bg-[#b088f9] text-black px-6 py-3 rounded-full shadow-[0_10px_35px_rgba(176,136,249,0.5)] font-bold font-sans text-xs sm:text-sm flex items-center gap-2 border border-white/40"
           >
             <Sparkles className="w-4 h-4 text-black fill-black" />
-            <span>¡Reproductor flotante de música desbloqueado!</span>
+            <span>¡Visualizador de visitantes en línea desbloqueado!</span>
           </motion.div>
         )}
       </AnimatePresence>
