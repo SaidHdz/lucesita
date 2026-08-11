@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import VisitorCounter from './VisitorCounter';
 import FoldText from './FoldText';
 import BlurText from './BlurText';
@@ -126,7 +127,7 @@ const PremiumCard = ({
           {showIGNote && (
             <div className="absolute top-4 left-1/2 -translate-x-1/2 flex flex-col items-center z-20 pointer-events-none" style={{ transform: 'translateZ(60px)' }}>
               <div className="bg-white/95 text-black px-3.5 py-1.5 rounded-2xl shadow-xl border border-white/60 text-xs font-sans font-bold text-center relative mb-1.5">
-                <span>te voy a extrañar</span>
+                <span>ahora si, feliz cumpleaños</span>
                 <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[6px] border-t-white/95" />
               </div>
             </div>
@@ -184,9 +185,59 @@ const Home = ({ onViewChange }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  useEffect(() => {
+    const colors = ['#b088f9', '#c8a2c8', '#88c8f9', '#f988b0', '#ffd700', '#ffffff'];
+
+    // Initial festive burst
+    confetti({
+      particleCount: 120,
+      spread: 80,
+      origin: { y: 0.6 },
+      colors
+    });
+
+    // Continuous side cannons burst for 2 seconds
+    const duration = 2000;
+    const end = Date.now() + duration;
+
+    let animationFrameId;
+    const frame = () => {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.7 },
+        colors
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.7 },
+        colors
+      });
+
+      if (Date.now() < end) {
+        animationFrameId = requestAnimationFrame(frame);
+      }
+    };
+    animationFrameId = requestAnimationFrame(frame);
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   const handleSnoopyTap = () => {
     const nextCount = tapCount + 1;
     setTapCount(nextCount);
+
+    confetti({
+      particleCount: 40,
+      spread: 60,
+      origin: { y: 0.35 },
+      colors: ['#b088f9', '#c8a2c8', '#88c8f9', '#f988b0', '#ffd700']
+    });
 
     if (nextCount >= 7) {
       localStorage.setItem('visitor_counter_unlocked', 'true');
@@ -248,7 +299,7 @@ const Home = ({ onViewChange }) => {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             className="relative bg-white/95 text-black px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-white/60 text-xs sm:text-sm font-sans font-bold text-center mb-3 group-hover:scale-105 transition-transform z-20"
           >
-            <span className="leading-snug text-black font-sans font-bold">te voy a extrañar</span>
+            <span className="leading-snug text-black font-sans font-bold">ahora si, feliz cumpleaños</span>
             {/* Speech Bubble Tail pointing down */}
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[8px] border-t-white/95" />
           </motion.div>
