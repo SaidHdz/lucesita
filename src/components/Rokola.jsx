@@ -38,6 +38,17 @@ const Rokola = ({ onBack }) => {
     }
   }, [volume, isMuted]);
 
+  React.useEffect(() => {
+    if (showPlaylistModal) {
+      setTimeout(() => {
+        const el = document.getElementById('current-playlist-song');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 50);
+    }
+  }, [showPlaylistModal]);
+
   // Fallback if no songs
   if (!songs || songs.length === 0) {
     return <div className="text-white flex items-center justify-center min-h-[100dvh]">Cargando canciones...</div>;
@@ -438,6 +449,7 @@ const Rokola = ({ onBack }) => {
                 return (
                   <div
                     key={song.id || originalIndex}
+                    id={isCurrent ? "current-playlist-song" : undefined}
                     onClick={() => {
                       setCurrentIndex(originalIndex);
                       setIsPlaying(true);
