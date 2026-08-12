@@ -85,6 +85,25 @@ import jadeCover from '../assets/jade.jpg';
 import lunaaCover from '../assets/lunaa.jpg';
 import surInterludioAudio from '../assets/Sur (Interludio)-converted.mp3';
 
+import laCalleAudio from '../assets/La Calle-converted.mp3';
+import gongoliAudio from '../assets/Gongoli (2012)-converted.mp3';
+import sopaDeLetritasAudio from '../assets/Nsqk, Mené - Sopa de Letritas (Letra)-converted.mp3';
+import torre3Audio from '../assets/Torre 3-converted.mp3';
+import bbyoseqeAudio from '../assets/Méne - BBYOSEQESTASPENSANDO-converted.mp3';
+import bolsaEnLaCaraAudio from '../assets/Bolsa en la cara-converted.mp3';
+import dondeTuEstasAudio from '../assets/Dónde Tu Estás_spotdown.org.mp3';
+import sinDespedirmeAudio from '../assets/Sin Despedirme-converted.mp3';
+import vuelveAudio from '../assets/Vuelve-converted.mp3';
+import arrancarmeloAudio from '../assets/ARRANCÁRMELO_spotdown.org.mp3';
+
+import lacalleCover from '../assets/lacalle.jpg';
+import diazantesCover from '../assets/diazantes.jpg';
+import botanicaaCover from '../assets/botanicaa.jpg';
+import bbyoseqeCover from '../assets/bbyoseqe.jpg';
+import bolsaenCover from '../assets/bolsaen.jpg';
+import ppsvacCover from '../assets/ppsvac.jpg';
+import arrancarmeloCover from '../assets/arrancarmelo.jpg';
+
 export const initialSongs = [
   {
     id: "nsqk-arbol-de-manzanas",
@@ -5288,6 +5307,202 @@ export const initialSongs = [
       { time: 177.8, text: "(Todo se va, ella se va, ya no pregunta por mí)" },
       { time: 183.27, text: "(Estás acá, no estás aquí)" },
       { time: 188.75, text: "(Te quiero acá, voy a morir, voy a morir)" }
+    ]
+  },
+  {
+    id: "mene-la-calle",
+    title: "la calle",
+    artist: "Méne",
+    cover: lacalleCover,
+    audio: laCalleAudio,
+    note: "Y no se si es verdad cuando me dices que me amas tambien, y me quiero matar cuando dices que es mejor asi",
+    spotifyUrl: "https://open.spotify.com/search/mene%20la%20calle",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 5.0, text: "Me da miedo salir a la calle" },
+      { time: 10.2, text: "Y encontrarte en ella" },
+      { time: 15.5, text: "Y no sé si es verdad cuando me dices que me amas también", isDedicated: true, color: "lila" },
+      { time: 22.1, text: "Y me quiero matar cuando dices que es mejor así", isDedicated: true, color: "azul" },
+      { time: 29.8, text: "Dices que es mejor así..." },
+      { time: 35.0, text: "Pensando en todo lo que fuimos" },
+      { time: 42.4, text: "Siento que el aire se me acaba" },
+      { time: 50.1, text: "No quería que esto terminara así" },
+      { time: 58.6, text: "Me da miedo salir a la calle" }
+    ]
+  },
+  {
+    id: "alvaro-diaz-gongoli",
+    title: "Gongoli (2012)",
+    artist: "Álvaro Díaz",
+    cover: diazantesCover,
+    audio: gongoliAudio,
+    note: "Sembre algodon y coseche una nube, para construirte una casita en el cielo (y ahi vivir, y ahi morir, enrolladito a ti como un gongoli",
+    spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20gongoli",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 8.0, text: "Recordando cuando todo era más simple" },
+      { time: 15.2, text: "Sembré algodón y coseché una nube", isDedicated: true, color: "azul" },
+      { time: 21.0, text: "Para construirte una casita en el cielo", isDedicated: true, color: "lila" },
+      { time: 27.5, text: "Y ahí vivir, y ahí morir", isDedicated: true, color: "azul" },
+      { time: 33.2, text: "Enrolladito a ti como un gongoli", isDedicated: true, color: "lila" },
+      { time: 40.0, text: "Te extraño tanto que no sé qué hacer" },
+      { time: 48.4, text: "Eres todo lo que siempre quise" },
+      { time: 56.1, text: "Volver a ese 2012 contigo" }
+    ]
+  },
+  {
+    id: "nsqk-mene-sopa-de-letritas",
+    title: "Sopa de Letritas",
+    artist: "Nsqk & Méne",
+    cover: botanicaaCover,
+    audio: sopaDeLetritasAudio,
+    note: "Si el mundo es una sopa de letritas, tu eres mi palabra favorita",
+    spotifyUrl: "https://open.spotify.com/search/nsqk%20mene%20sopa%20de%20letritas",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 6.5, text: "Pensándote a todas horas del día" },
+      { time: 12.0, text: "Buscándote entre todas las palabras" },
+      { time: 18.4, text: "Si el mundo es una sopa de letritas", isDedicated: true, color: "azul" },
+      { time: 24.1, text: "Tú eres mi palabra favorita", isDedicated: true, color: "lila" },
+      { time: 31.0, text: "Y no hay nadie más que se compare a ti" },
+      { time: 38.2, text: "Contigo todo cobraba sentido" },
+      { time: 45.0, text: "Eres mi palabra favorita siempre" }
+    ]
+  },
+  {
+    id: "alvaro-diaz-torre-3",
+    title: "Torre 3",
+    artist: "Álvaro Díaz",
+    cover: royCover,
+    audio: torre3Audio,
+    note: "Amor supongo que ya es hora de decir adios, prometo que dañarte nunca ha sido mi intencion",
+    spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20torre%203",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 7.2, text: "Mirando la ciudad desde lo alto" },
+      { time: 14.0, text: "Amor supongo que ya es hora de decir adios", isDedicated: true, color: "lila" },
+      { time: 21.5, text: "Prometo que dañarte nunca ha sido mi intencion", isDedicated: true, color: "azul" },
+      { time: 29.0, text: "Perdóname si te hice sufrir" },
+      { time: 36.8, text: "Te quise con todo mi corazón" },
+      { time: 44.2, text: "Y nunca quise hacerte daño" }
+    ]
+  },
+  {
+    id: "mene-bbyoseqestaspensando",
+    title: "BBYOSEQESTASPENSANDO.",
+    artist: "Méne",
+    cover: bbyoseqeCover,
+    audio: bbyoseqeAudio,
+    note: "Y a media noche mandame un mensaje si es que me necesitas, yo estoy pensando en tu carita y no tenerte cerquita, bebe, me desubica",
+    spotifyUrl: "https://open.spotify.com/search/mene%20bbyoseqestaspensando",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 5.8, text: "Mirando el teléfono a altas horas de la madrugada" },
+      { time: 11.4, text: "Y a media noche mandame un mensaje si es que me necesitas", isDedicated: true, color: "lila" },
+      { time: 18.2, text: "Yo estoy pensando en tu carita y no tenerte cerquita, bebe, me desubica", isDedicated: true, color: "azul" },
+      { time: 26.0, text: "Me desubica no tenerte aquí al lado" },
+      { time: 33.5, text: "Pensando en ti sin parar" },
+      { time: 41.0, text: "Esperando ese mensaje tuyo" }
+    ]
+  },
+  {
+    id: "alvaro-diaz-bolsa-en-la-cara",
+    title: "Bolsa en la cara",
+    artist: "Álvaro Díaz",
+    cover: bolsaenCover,
+    audio: bolsaEnLaCaraAudio,
+    note: "Tengo miedo de salir afuera, y que alguien pueda ver mi rostro cuando lloro por ti, tengo miedo de salir afuera y que alguien pueda ver mi rostro por que ya lo perdi",
+    spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20bolsa%20en%20la%20cara",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 6.0, text: "Encerrado en mi cuarto sin querer saber de nadie" },
+      { time: 12.5, text: "Tengo miedo de salir afuera", isDedicated: true, color: "lila" },
+      { time: 17.8, text: "Y que alguien pueda ver mi rostro cuando lloro por ti", isDedicated: true, color: "azul" },
+      { time: 24.2, text: "Tengo miedo de salir afuera", isDedicated: true, color: "lila" },
+      { time: 29.9, text: "Y que alguien pueda ver mi rostro por que ya lo perdi", isDedicated: true, color: "azul" },
+      { time: 37.0, text: "Por que ya lo perdi sin ti..." },
+      { time: 44.5, text: "Extrañándote demasiado cada día" }
+    ]
+  },
+  {
+    id: "alvaro-diaz-donde-tu-estas",
+    title: "Dónde Tú Estás",
+    artist: "Álvaro Díaz",
+    cover: ppsvacCover,
+    audio: dondeTuEstasAudio,
+    note: "Me he pillado un ten para volver a casa sabiendo que he dejado mi casa atras, aun que no creo que vuelva ya no me hace falta, mi hogar esta donde tu estas..",
+    spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20donde%20tu%20estas",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 6.0, text: "Viajando sin rumbo pero pensando en ti" },
+      { time: 13.2, text: "Me he pillado un ten para volver a casa sabiendo que he dejado mi casa atras", isDedicated: true, color: "lila" },
+      { time: 22.0, text: "Aun que no creo que vuelva ya no me hace falta, mi hogar esta donde tu estas..", isDedicated: true, color: "azul" },
+      { time: 31.4, text: "Tú eres mi único hogar verdadero" },
+      { time: 39.0, text: "Allí donde tú estés yo quiero estar" }
+    ]
+  },
+  {
+    id: "alvaro-diaz-sin-despedirme",
+    title: "Sin Despedirme",
+    artist: "Álvaro Díaz",
+    cover: ppsvacCover,
+    audio: sinDespedirmeAudio,
+    note: "Recuerdo el donde estas que paso a buscarte, tambien el piensa en mi pero lo olvidaste, quisza tenian razon y soy un desastre, fui tan cobarde",
+    spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20sin%20despedirme",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 5.5, text: "No me quise ir sin despedirme" },
+      { time: 11.8, text: "Recuerdo el donde estas que paso a buscarte", isDedicated: true, color: "lila" },
+      { time: 18.0, text: "Tambien el piensa en mi pero lo olvidaste", isDedicated: true, color: "azul" },
+      { time: 24.5, text: "Quisza tenian razon y soy un desastre, fui tan cobarde", isDedicated: true, color: "lila" },
+      { time: 32.0, text: "Fui tan cobarde al no luchar más" },
+      { time: 39.8, text: "Te extraño cada segundo de mi vida" }
+    ]
+  },
+  {
+    id: "alvaro-diaz-vuelve",
+    title: "Vuelve",
+    artist: "Álvaro Díaz",
+    cover: ppsvacCover,
+    audio: vuelveAudio,
+    note: "Te dije cosas que no le dije a nadie y ahora ni si quiera nos vemos",
+    spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20vuelve",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 6.0, text: "Rogándole al tiempo que retroceda" },
+      { time: 12.4, text: "Te dije cosas que no le dije a nadie", isDedicated: true, color: "azul" },
+      { time: 18.5, text: "Y ahora ni si quiera nos vemos", isDedicated: true, color: "lila" },
+      { time: 25.0, text: "Vuelve, por favor vuelve a mi lado" },
+      { time: 32.8, text: "Aunque sé que nada cambiaría" },
+      { time: 40.5, text: "Te diría que te quedes una y mil veces" }
+    ]
+  },
+  {
+    id: "wos-arrancarmelo",
+    title: "ARRANCÁRMELO",
+    artist: "WOS",
+    cover: arrancarmeloCover,
+    audio: arrancarmeloAudio,
+    note: "Ahora recuerdo la primera vez que te reiste y las ganas que me dieron de que se me ocurra un chiste, ¿Como van a convencerme de que la magia no existe?",
+    spotifyUrl: "https://open.spotify.com/search/wos%20arrancarmelo",
+    type: "single",
+    date: '2026-08-11T00:00:00Z',
+    lyrics: [
+      { time: 6.8, text: "No me pidas que no vuelva a intentar" },
+      { time: 13.0, text: "Ahora recuerdo la primera vez que te reiste", isDedicated: true, color: "lila" },
+      { time: 19.5, text: "Y las ganas que me dieron de que se me ocurra un chiste", isDedicated: true, color: "azul" },
+      { time: 26.2, text: "¿Como van a convencerme de que la magia no existe?", isDedicated: true, color: "lila" },
+      { time: 34.0, text: "La magia existía cuando estabas conmigo" },
+      { time: 42.0, text: "Y no me la pueden borrar" }
     ]
   }
 ];
