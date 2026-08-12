@@ -14,6 +14,14 @@ const Rokola = ({ onBack }) => {
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const [platformModalSong, setPlatformModalSong] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [listenedNewSongs, setListenedNewSongs] = useState(() => {
+    try {
+      const saved = localStorage.getItem('listenedNewSongs');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
   
   // Audio state
   const audioRef = React.useRef(null);
@@ -55,6 +63,19 @@ const Rokola = ({ onBack }) => {
   }
 
   const currentSong = songs[currentIndex];
+
+  React.useEffect(() => {
+    if (currentSong && currentSong.date === '2026-08-11T00:00:00Z') {
+      setListenedNewSongs(prev => {
+        if (!prev.includes(currentSong.id)) {
+          const updated = [...prev, currentSong.id];
+          localStorage.setItem('listenedNewSongs', JSON.stringify(updated));
+          return updated;
+        }
+        return prev;
+      });
+    }
+  }, [currentSong]);
 
   const filteredSongs = songs
     .map((song, idx) => ({ song, originalIndex: idx }))
@@ -414,9 +435,16 @@ const Rokola = ({ onBack }) => {
               <div className="flex items-center gap-3">
                 <ListMusic className="w-6 h-6 text-purple-400" />
                 <div>
-                  <h2 className="text-white text-xl md:text-2xl font-bold font-sans">
-                    Tu Playlist ({songs.length} canciones)
-                  </h2>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-white text-xl md:text-2xl font-bold font-sans">
+                      Tu Playlist ({songs.length} canciones)
+                    </h2>
+                    {songs.filter(s => s.date === '2026-08-11T00:00:00Z' && !listenedNewSongs.includes(s.id)).length > 0 && (
+                      <span className="bg-red-500 text-white text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full shadow-sm border border-red-400">
+                        {songs.filter(s => s.date === '2026-08-11T00:00:00Z' && !listenedNewSongs.includes(s.id)).length} Nuevas
+                      </span>
+                    )}
+                  </div>
                   <p className="text-xs text-white/50 font-mono">
                     Selecciona una canción para reproducirla
                   </p>
@@ -471,7 +499,7 @@ const Rokola = ({ onBack }) => {
                         <h4 className="text-white font-bold text-sm md:text-base truncate group-hover:text-purple-300 transition-colors">
                           {song.title}
                         </h4>
-                        {song.date === '2026-08-11T00:00:00Z' && !isCurrent && (
+                        {song.date === '2026-08-11T00:00:00Z' && !listenedNewSongs.includes(song.id) && !isCurrent && (
                           <span className="bg-red-500 text-white text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded-full shrink-0 shadow-sm border border-red-400">
                             Nueva
                           </span>

@@ -102,10 +102,6 @@ const FloatingPlayer = () => {
             onClick={() => setIsCollapsed(false)}
             className="flex items-center gap-3 bg-[#121118]/90 backdrop-blur-2xl border border-white/20 px-4 py-2.5 rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.6)] cursor-pointer group hover:border-[#b088f9]/50 transition-all relative"
           >
-            {/* Notification Badge for 10 new songs */}
-            <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#121118] shadow-sm z-10 flex items-center justify-center min-w-[20px] h-[20px]">
-              10
-            </div>
             <div className={`w-8 h-8 rounded-full overflow-hidden border border-white/20 relative ${isPlaying ? 'animate-spin' : ''}`} style={{ animationDuration: '8s' }}>
               <img src={currentSong.cover} alt={currentSong.title} className="w-full h-full object-cover" />
             </div>
