@@ -231,28 +231,15 @@ const Rokola = ({ onBack }) => {
                           const nextLine = song.lyrics[i + 1];
                           const isLineActive = currentTime >= line.time && (!nextLine || currentTime < nextLine.time);
 
-                          let dedicatedClasses = "";
-                          if (line.isDedicated) {
-                            if (line.color === "azul") {
-                              dedicatedClasses = "text-[#60a5fa] font-bold drop-shadow-[0_0_18px_rgba(96,165,250,0.85)]";
-                            } else {
-                              dedicatedClasses = "text-[#c8a2c8] font-bold drop-shadow-[0_0_18px_rgba(200,162,200,0.85)]";
-                            }
-                          } else if (isLineActive) {
-                            dedicatedClasses = "text-white font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]";
-                          } else {
-                            dedicatedClasses = "text-white font-normal drop-shadow-sm";
-                          }
-
                           return (
                             <motion.p 
                               key={i}
                               initial={false}
                               animate={{ 
-                                scale: isLineActive ? 1.35 : (line.isDedicated ? 1.05 : 0.85), 
-                                opacity: isLineActive ? 1 : (line.isDedicated ? 0.85 : 0.35),
+                                scale: isLineActive ? 1.35 : 0.85, 
+                                opacity: isLineActive ? 1 : 0.35,
                                 y: isLineActive ? -8 : 0,
-                                filter: isLineActive ? 'blur(0px)' : (line.isDedicated ? 'blur(0px)' : 'blur(1px)')
+                                filter: isLineActive ? 'blur(0px)' : 'blur(1px)'
                               }}
                               transition={{ 
                                 type: "spring", 
@@ -260,7 +247,11 @@ const Rokola = ({ onBack }) => {
                                 damping: 18, 
                                 mass: 0.8
                               }}
-                              className={`text-center font-serif leading-relaxed md:leading-[2.2] mb-8 md:mb-10 origin-center w-[85%] md:w-[75%] mx-auto text-balance ${dedicatedClasses} text-xl md:text-4xl`}
+                              className={`text-center font-serif leading-relaxed md:leading-[2.2] mb-8 md:mb-10 origin-center text-white w-[85%] md:w-[75%] mx-auto text-balance ${
+                                isLineActive 
+                                  ? 'font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]' 
+                                  : 'font-normal drop-shadow-sm'
+                              } text-xl md:text-4xl`}
                             >
                               {line.text}
                             </motion.p>
@@ -299,7 +290,7 @@ const Rokola = ({ onBack }) => {
                     <p className="text-white/70 font-sans text-xs md:text-base uppercase tracking-widest truncate">
                       by {song.artist}
                     </p>
-                    {song.lyrics && isActive && (
+                    {song.lyrics && song.lyrics.length > 0 && isActive && (
                       <button 
                         onClick={() => setShowLyrics(true)}
                         className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 hover:bg-white/25 border border-white/20 text-white text-[10px] tracking-widest uppercase transition-colors"

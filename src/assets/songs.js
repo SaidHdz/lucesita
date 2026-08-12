@@ -5319,25 +5319,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/mene%20la%20calle",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 5.0, text: "Pensando en todo lo que fuimos" },
-      { time: 10.2, text: "Y en lo que no llegamos a ser" },
-      { time: 15.5, text: "Me da miedo salir a la calle" },
-      { time: 20.1, text: "Y encontrarte en ella" },
-      { time: 26.0, text: "Y no sé si es verdad cuando me dices que me amas también", isDedicated: true, color: "lila" },
-      { time: 33.2, text: "Y me quiero matar cuando dices que es mejor así", isDedicated: true, color: "lila" },
-      { time: 41.5, text: "Dices que es mejor así..." },
-      { time: 48.0, text: "Siento que el aire se me acaba" },
-      { time: 55.2, text: "No quería que esto terminara así" },
-      { time: 62.0, text: "Caminando a solas por la noche" },
-      { time: 69.4, text: "Mirando el suelo sin saber qué hacer" },
-      { time: 76.8, text: "Y no sé si es verdad cuando me dices que me amas también", isDedicated: true, color: "lila" },
-      { time: 84.1, text: "Y me quiero matar cuando dices que es mejor así", isDedicated: true, color: "lila" },
-      { time: 92.5, text: "Dices que es mejor así" },
-      { time: 100.0, text: "Todo recuerdo de ti me quema" },
-      { time: 108.2, text: "Y me da miedo salir a la calle" },
-      { time: 115.6, text: "Sin ti..." }
-    ]
+    lyrics: []
   },
   {
     id: "alvaro-diaz-gongoli",
@@ -5349,24 +5331,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20gongoli",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 6.0, text: "Recordando cuando todo era más simple" },
-      { time: 12.0, text: "De cuando éramos tú y yo sin preocupaciones" },
-      { time: 18.2, text: "Sembré algodón y coseché una nube", isDedicated: true, color: "azul" },
-      { time: 24.0, text: "Para construirte una casita en el cielo", isDedicated: true, color: "azul" },
-      { time: 30.5, text: "Y ahí vivir, y ahí morir", isDedicated: true, color: "azul" },
-      { time: 36.2, text: "Enrolladito a ti como un gongoli", isDedicated: true, color: "azul" },
-      { time: 43.0, text: "Extraño esa época donde sonreíamos" },
-      { time: 50.4, text: "Cuando nada dolía" },
-      { time: 58.1, text: "Volver a ese 2012 contigo" },
-      { time: 65.5, text: "Sembré algodón y coseché una nube", isDedicated: true, color: "azul" },
-      { time: 72.0, text: "Para construirte una casita en el cielo", isDedicated: true, color: "azul" },
-      { time: 78.5, text: "Y ahí vivir, y ahí morir", isDedicated: true, color: "azul" },
-      { time: 84.2, text: "Enrolladito a ti como un gongoli", isDedicated: true, color: "azul" },
-      { time: 92.0, text: "Acurrucadito al lado tuyo" },
-      { time: 99.8, text: "Sin que nadie nos moleste" },
-      { time: 108.5, text: "Te sigo esperando como antes" }
-    ]
+    lyrics: []
   },
   {
     id: "nsqk-mene-sopa-de-letritas",
@@ -5378,20 +5343,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/nsqk%20mene%20sopa%20de%20letritas",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 5.5, text: "Mirando al techo sin poder dormir" },
-      { time: 11.0, text: "Buscando frases en mi cabeza" },
-      { time: 17.0, text: "Pensándote a todas horas del día" },
-      { time: 23.4, text: "Si el mundo es una sopa de letritas", isDedicated: true, color: "lila" },
-      { time: 29.1, text: "Tú eres mi palabra favorita", isDedicated: true, color: "lila" },
-      { time: 36.0, text: "Entre tantas cosas y personas" },
-      { time: 43.2, text: "Tú siempre fuiste mi lugar seguro" },
-      { time: 50.0, text: "No hay nadie más que se compare a ti" },
-      { time: 57.5, text: "Si el mundo es una sopa de letritas", isDedicated: true, color: "lila" },
-      { time: 63.8, text: "Tú eres mi palabra favorita", isDedicated: true, color: "lila" },
-      { time: 71.0, text: "Y nunca dejarás de serlo" },
-      { time: 78.5, text: "Aunque el tiempo pase y no estés aquí" }
-    ]
+    lyrics: []
   },
   {
     id: "alvaro-diaz-torre-3",
@@ -5403,19 +5355,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20torre%203",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 6.0, text: "Observando la ciudad desde las alturas" },
-      { time: 13.0, text: "Sabiendo que todo llegó a su fin" },
-      { time: 19.0, text: "Amor supongo que ya es hora de decir adios", isDedicated: true, color: "azul" },
-      { time: 26.5, text: "Prometo que dañarte nunca ha sido mi intencion", isDedicated: true, color: "azul" },
-      { time: 34.0, text: "Perdóname si cometí errores" },
-      { time: 41.8, text: "Te quise con todo lo que tenía" },
-      { time: 49.2, text: "Y jamás quise causarte este dolor" },
-      { time: 56.5, text: "Amor supongo que ya es hora de decir adios", isDedicated: true, color: "azul" },
-      { time: 64.0, text: "Prometo que dañarte nunca ha sido mi intencion", isDedicated: true, color: "azul" },
-      { time: 72.0, text: "Me despido de ti con el alma rota" },
-      { time: 80.0, text: "Hasta siempre mi amor..." }
-    ]
+    lyrics: []
   },
   {
     id: "mene-bbyoseqestaspensando",
@@ -5427,18 +5367,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/mene%20bbyoseqestaspensando",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 5.0, text: "Revisando las conversaciones viejas" },
-      { time: 10.8, text: "Esperando ver tu nombre en mi pantalla" },
-      { time: 16.4, text: "Y a media noche mandame un mensaje si es que me necesitas", isDedicated: true, color: "lila" },
-      { time: 24.2, text: "Yo estoy pensando en tu carita y no tenerte cerquita, bebe, me desubica", isDedicated: true, color: "lila" },
-      { time: 33.0, text: "Me desubica no tenerte aquí" },
-      { time: 40.5, text: "Extrañándote a cada segundo" },
-      { time: 48.0, text: "Si me necesitas aquí voy a estar" },
-      { time: 55.4, text: "Y a media noche mandame un mensaje si es que me necesitas", isDedicated: true, color: "lila" },
-      { time: 63.2, text: "Yo estoy pensando en tu carita y no tenerte cerquita, bebe, me desubica", isDedicated: true, color: "lila" },
-      { time: 72.0, text: "Sólo quiero tenerte cerquita otra vez" }
-    ]
+    lyrics: []
   },
   {
     id: "alvaro-diaz-bolsa-en-la-cara",
@@ -5450,21 +5379,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20bolsa%20en%20la%20cara",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 6.0, text: "Encerrado en cuatro paredes" },
-      { time: 12.0, text: "Sin ganas de ver la luz del día" },
-      { time: 18.5, text: "Tengo miedo de salir afuera", isDedicated: true, color: "azul" },
-      { time: 24.8, text: "Y que alguien pueda ver mi rostro cuando lloro por ti", isDedicated: true, color: "azul" },
-      { time: 32.2, text: "Tengo miedo de salir afuera", isDedicated: true, color: "azul" },
-      { time: 38.9, text: "Y que alguien pueda ver mi rostro por que ya lo perdi", isDedicated: true, color: "azul" },
-      { time: 47.0, text: "Por que ya lo perdí desde que te fuiste" },
-      { time: 55.5, text: "La gente no entiende lo mucho que me duele" },
-      { time: 63.0, text: "Tengo miedo de salir afuera", isDedicated: true, color: "azul" },
-      { time: 69.8, text: "Y que alguien pueda ver mi rostro cuando lloro por ti", isDedicated: true, color: "azul" },
-      { time: 77.2, text: "Tengo miedo de salir afuera", isDedicated: true, color: "azul" },
-      { time: 83.9, text: "Y que alguien pueda ver mi rostro por que ya lo perdi", isDedicated: true, color: "azul" },
-      { time: 92.0, text: "Sin ti ya no soy el mismo..." }
-    ]
+    lyrics: []
   },
   {
     id: "alvaro-diaz-donde-tu-estas",
@@ -5476,17 +5391,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20donde%20tu%20estas",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 6.0, text: "Mirando por la ventana del vagón" },
-      { time: 12.0, text: "Viendo pasar los kilómetros" },
-      { time: 18.2, text: "Me he pillado un ten para volver a casa sabiendo que he dejado mi casa atras", isDedicated: true, color: "lila" },
-      { time: 27.0, text: "Aun que no creo que vuelva ya no me hace falta, mi hogar esta donde tu estas..", isDedicated: true, color: "lila" },
-      { time: 37.4, text: "Mi único hogar eras tú" },
-      { time: 45.0, text: "Donde tú estés estaré bien" },
-      { time: 53.0, text: "Me he pillado un ten para volver a casa sabiendo que he dejado mi casa atras", isDedicated: true, color: "lila" },
-      { time: 62.0, text: "Aun que no creo que vuelva ya no me hace falta, mi hogar esta donde tu estas..", isDedicated: true, color: "lila" },
-      { time: 71.5, text: "Lejos de ti no hay hogar" }
-    ]
+    lyrics: []
   },
   {
     id: "alvaro-diaz-sin-despedirme",
@@ -5498,18 +5403,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20sin%20despedirme",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 5.5, text: "Me fui sin decir una palabra" },
-      { time: 11.0, text: "Sabiendo que dolería demasiado" },
-      { time: 16.8, text: "Recuerdo el donde estas que paso a buscarte", isDedicated: true, color: "azul" },
-      { time: 23.0, text: "Tambien el piensa en mi pero lo olvidaste", isDedicated: true, color: "azul" },
-      { time: 29.5, text: "Quisza tenian razon y soy un desastre, fui tan cobarde", isDedicated: true, color: "azul" },
-      { time: 38.0, text: "Fui tan cobarde por no hablarte con la verdad" },
-      { time: 46.8, text: "Recuerdo el donde estas que paso a buscarte", isDedicated: true, color: "azul" },
-      { time: 53.0, text: "Tambien el piensa en mi pero lo olvidaste", isDedicated: true, color: "azul" },
-      { time: 59.5, text: "Quisza tenian razon y soy un desastre, fui tan cobarde", isDedicated: true, color: "azul" },
-      { time: 68.0, text: "Me arrepiento de no haberme despedido..." }
-    ]
+    lyrics: []
   },
   {
     id: "alvaro-diaz-vuelve",
@@ -5521,16 +5415,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/alvaro%20diaz%20vuelve",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 6.0, text: "Daría lo que fuera por volverte a ver" },
-      { time: 12.4, text: "Te dije cosas que no le dije a nadie", isDedicated: true, color: "lila" },
-      { time: 18.5, text: "Y ahora ni si quiera nos vemos", isDedicated: true, color: "lila" },
-      { time: 26.0, text: "Te rogaría que vuelvas a mi lado" },
-      { time: 33.8, text: "Aunque sé que el 'no' no cambiaría" },
-      { time: 41.5, text: "Te dije cosas que no le dije a nadie", isDedicated: true, color: "lila" },
-      { time: 47.5, text: "Y ahora ni si quiera nos vemos", isDedicated: true, color: "lila" },
-      { time: 55.0, text: "Vuelve mi amor, por favor vuelve" }
-    ]
+    lyrics: []
   },
   {
     id: "wos-arrancarmelo",
@@ -5542,18 +5427,7 @@ export const initialSongs = [
     spotifyUrl: "https://open.spotify.com/search/wos%20arrancarmelo",
     type: "single",
     date: '2026-08-11T00:00:00Z',
-    lyrics: [
-      { time: 6.8, text: "No me pidas que no vuelva a intentar" },
-      { time: 13.0, text: "Ahora recuerdo la primera vez que te reiste", isDedicated: true, color: "azul" },
-      { time: 19.5, text: "Y las ganas que me dieron de que se me ocurra un chiste", isDedicated: true, color: "azul" },
-      { time: 26.2, text: "¿Como van a convencerme de que la magia no existe?", isDedicated: true, color: "azul" },
-      { time: 34.0, text: "No pueden convencerme de nada" },
-      { time: 42.0, text: "Cuando lo que sentí por ti fue real" },
-      { time: 50.0, text: "Ahora recuerdo la primera vez que te reiste", isDedicated: true, color: "azul" },
-      { time: 56.5, text: "Y las ganas que me dieron de que se me ocurra un chiste", isDedicated: true, color: "azul" },
-      { time: 63.2, text: "¿Como van a convencerme de que la magia no existe?", isDedicated: true, color: "azul" },
-      { time: 72.0, text: "No me pidas que te olvide..." }
-    ]
+    lyrics: []
   }
 ];
 
