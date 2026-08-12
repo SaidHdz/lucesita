@@ -459,6 +459,11 @@ const Rokola = ({ onBack }) => {
                         <h4 className="text-white font-bold text-sm md:text-base truncate group-hover:text-purple-300 transition-colors">
                           {song.title}
                         </h4>
+                        {song.date === '2026-08-11T00:00:00Z' && !isCurrent && (
+                          <span className="bg-red-500 text-white text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded-full shrink-0 shadow-sm border border-red-400">
+                            Nueva
+                          </span>
+                        )}
                         {isCurrent && (
                           <span className="bg-purple-500 text-white text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full shrink-0">
                             En reproducción
