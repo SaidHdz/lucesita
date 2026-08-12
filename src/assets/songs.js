@@ -367,7 +367,7 @@ export const initialSongs = [
   },
   {
     id: "marcsegui-tiroteo-remix",
-    title: "Tiroteo - Remix",
+    title: "Tiroteo",
     artist: "Marc Seguí, Rauw Alejandro, Pol Granch",
     cover: tiroteoCover,
     audio: tiroteoAudio,
@@ -5291,3 +5291,20 @@ export const initialSongs = [
     ]
   }
 ];
+
+export const getSpotifyUrl = (song) => {
+  if (song && song.spotifyUrl && song.spotifyUrl.length > 5) {
+    return song.spotifyUrl;
+  }
+  const query = encodeURIComponent(`${song?.title || ''} ${song?.artist || ''}`);
+  return `https://open.spotify.com/search/${query}`;
+};
+
+export const getAppleMusicUrl = (song) => {
+  if (song && song.appleMusicUrl && song.appleMusicUrl.length > 5) {
+    return song.appleMusicUrl;
+  }
+  const query = encodeURIComponent(`${song?.artist || ''} ${song?.title || ''}`);
+  return `https://music.apple.com/us/search?term=${query}`;
+};
+

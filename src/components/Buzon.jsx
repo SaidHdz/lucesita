@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, X, PenTool, ArrowLeft, ChevronLeft, ChevronRight, Heart, Sparkles, Check, MailOpen, Download, Loader2 } from 'lucide-react';
+import { Mail, X, ArrowLeft, ChevronLeft, ChevronRight, Heart, Sparkles, Check, MailOpen, Download, Loader2, ListMusic } from 'lucide-react';
 import html2canvas from 'html2canvas';
-import cartasCover from '../assets/WhatsApp Image 2026-08-07 at 2.02.22 AM.jpeg';
 
 const letters = [
   { 
@@ -213,6 +212,46 @@ le quitaste el habla a mi tristeza y, por primera vez, busco cómo seguir con vi
 sueño con el día de llegar a la **Misa** y verte entrar de blanco hacia el altar, para después escaparnos y en nuestra luna de miel a **los Alpes** viajar. Sé que para muchos esto suena a **ciencia ficción** , a un cuento de hadas que no existe, pero para mí es el único futuro que vale la pena soñar. te quiero de aquí a la luna, hoy más que nunca.`,
     stampColor: 'from-purple-500 to-pink-600',
     accentGlow: 'rgba(200, 162, 200, 0.3)'
+  },
+  { 
+    id: 18, 
+    number: "18",
+    title: 'Soltar', 
+    date: '10/ago/2026',
+    tag: 'Despedida',
+    isNew: true,
+    snippet: 'que difícil es soltar cuando ambos nos queremos tanto, cuando el amor no es lo que nos separa ni su ausencia, si no algo mas importante, la confianza...',
+    content: `que difícil es soltar cuando ambos nos queremos tanto, cuando el amor no es lo que nos separa ni su ausencia, si no algo mas importante, la confianza.
+
+si esto fuera diferente, si me dijeras que no me quieres o que me odias seria más fácil para mi, para ambos, pero no es así, no quiero soltarte ni quiero que me sueltes, y tampoco quiero quedar con el "en otra vida" por que NO ES LO QUE QUEREMOS y lo sabes, yo lo se, y se que no quieres irte por que, nunca pudiste decirlo mirándome a los ojos, perdon por amarte tanto y hacer mas complicadas las cosas, ojala fuera fácil soltar a la mujer con la que quería tener mi familia y mi futuro, a mi chinita linda, a mi 309, mi yoko, mi gongoli, mi calabacita y mi todo, te amo tanto que ni si quiera se si pueda seguir sin ti, o quiza si, pero será complicado, no tendré a quien darle los buenos dias, a quien querer o con quien celebrar mis logros, tengo a mis amigos pero, ellos no son la razon por la cual logre eso, que bien son pilares y los quiero, tu eres la razón por la cual siempre le eh echado ganas, el motivante para ser mejor, eres mi todo, y ahora viviré por ti, sere feliz con tu recuerdo y lo que fuimos, y espero, espero en otra vida poder estar juntos, ser dos perritos salchicha y vivir libres por el mundo, o quizá dos caballitos de mar, por que así como ellos, yo quiero quedarme sin ti, pq te elegi como mi pareja, y quiza no muera por tu ausencia, no por fuera, por que por dentro estoy muerto por tu ida.`,
+    stampColor: 'from-purple-600 via-indigo-600 to-slate-800',
+    accentGlow: 'rgba(176, 136, 249, 0.3)'
+  },
+  { 
+    id: 19, 
+    number: "19",
+    title: 'Calabacita linda', 
+    date: '11/ago/2026',
+    tag: 'Canciones & Recuerdos',
+    isNew: true,
+    snippet: 'calabacita linda, tengo fe en que, algún día volveremos a estar juntos y pasara todo este *tiroteo*, volvere a ver tus *ojitos lindos*...',
+    content: `calabacita linda, tengo fe en que, algún día volveremos a estar juntos y pasara todo este *tiroteo*, volvere a ver tus *ojitos lindos* y poder decirte esas *COSAS QUE NO TE DIJE*, que el próximo verano no sea sin ti; me arrepiento un poco por que se que *Debí tirar más fotos* y trato de afrontar todo esto pero si me ponen *La cancion* que te dedique mi fortaleza se derrumba, como siento que esto es *el fin del mundo* y que no acepto que sea este *el final de nuestra historia* cuando yo aun quería ver *otro atardecer* junto a ti, juntos con nuestras metas realizadas, *Me rehuso* a dejarte ir, por que es muy complicado sabiendo que nos morimos por amor y no es su falta o ausencia lo que hace difícil nuestra despedida, aun sabiendo que amo *todo de ti* que con tu risa y tu forma ser tan linda *te mudaste* a mi corazón, dejando un hueco qué no podre tapar tan fácil, siendo qué tu eres mi *BAILE INoLVIDABLE* y al final el error viene de mi mismo, y me pregunto *QUE PASARIA...* si lo intentaramos, una vez mas y esta fuera la buena, y la definitiva para hacer todo bien, me dolería mucho llegar a *Tu boda* sabiendo que deberia ser yo el que este ahí
+
+me duele tener que saber que ahora tienes tus *OJITOS ROJOS* de tanto llorar por mi culpa
+escuchando mas de *1000CANCIONES* y en todas te pienso, siendo qué eres mi *309* y que te quiero tanto que me gustaria estar como un *Gongoli* acurrucadito al lado tuyo, soy un *BOBOMENSOTONTO* al haber hecho todo lo que hice, no me arrepiento de amarte si no de lo malo
+
+miro a la *LUNA* con el consuelo de que la estés viendo tu tambien, quiza pensando en mi y en todo esto, nunca pensé que *Agosto* me jugaria tan mal, nunca olvidsre el 10 de agosto a las 2:20 de la mañana, nuestro último día juntos
+
+ojala volver unos *DIAZ ANTES* y arreglar todos los errores cometidos, me gusto enamorarme de ti, asi *LENTITO* y lindo, dandome cuenta poco a poco que tu me dejas *SIN PODERES* al verme con esos lindos ojos, sabes que yo *POR ESOS OJOS* doy todo, y aun que *MAMI 100PRE SABE* y sabra todo lo que te ame, tu sabes más que nadie qué *NADIE TE QUIERE COMO EL NENE* y aun sabiendo que estamos *EN LA MISMA CIUDAD* y no podemos vernos, no me quiero imaginar cusndo estemos a *KILO*metros de distancia, extrañándote a la distancia, y no es secreto qué me tienes loco, que me siento en LSD cuando te toco, sabes que soy un tonto y mil veces me equivoco pero, yo te quiero a mi ladito como *YOKO*
+
+siempre te pediré un ratito más, quedate, un ratito más mi amor.
+me da miedo salir a *la calle* y encontrarte en ella, sin saber si quiera como reaccionar.
+
+nunca podre olvidar qué te gusta el lila o el *Azúl*, que te gusta snoopy o tomar mucho cafe, tantas cosas que vivimos en poco tiempo y darme cuenta que no quiero a *NADIE MAS* me duele demasiado, y te dije *Cosas Que Jamas Diria a Nadie*, no quise irme *Sin Despedirme* aun que eso mismo hizo qué tuviera menos ganas de irme, haciendo tanto calor y sintiéndome en un *invierno* por lo frio de tu "no", te diría una y mil veces *Vuelve* aun sabiendo que nada cambiaría, te rogaría y te diría *Quedate* como si fuera a cambiar algo, ahora más siento que solo hay *Noches Infinitas* en las que no logro y no puedo conciliar el sueño, aun sabiendo que no podre decirte que *TE VI EN MIS PESADILLAS* 
+
+intento soltarte sabiendo que quiza asi ambos podamos resprirar y estar en paz, dolerá y tardará, me sentiré como si estuviera en la *TARMAC* esperando a que deje de doler, aun que si ese es el precio por haberte amado con todo mi ser, lo tomaría una y mil veces, ahora seguire tratando de see *Normal* aun que sepa que pondre *La Sonrisa Obligatoria* y sabiendo que yo fui el *Amor de su vida*, ni aquí puedo terminar de escribir jaja, espero algún día recibir una mensaje tuyo diciendo *OYE* y mi primer respuesta sea "si", por que mi hogar esta *Dónde Tu Estas*, este final se siente *PARANORMAL*, esperando y rogándole a dios a que me digas si regresaras, por ahora me despido de ti y lo nuestro con un *Adiós Amor*`,
+    stampColor: 'from-[#88c8f9] via-[#b088f9] to-pink-700',
+    accentGlow: 'rgba(136, 200, 249, 0.35)'
   }
 ];
 
@@ -222,16 +261,34 @@ const renderFormattedText = (rawText) => {
   const parts = rawText.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
   return parts.map((part, index) => {
     if (part.startsWith('**') && part.endsWith('**')) {
+      const inner = part.slice(2, -2);
+      const isBlue = inner.toLowerCase().includes('azul') || inner.toLowerCase().includes('azúl');
       return (
-        <strong key={index} className="font-bold text-[#b088f9] drop-shadow-[0_0_8px_rgba(176,136,249,0.3)]">
-          {part.slice(2, -2)}
+        <strong 
+          key={index} 
+          className={`font-bold ${
+            isBlue 
+              ? 'text-blue-400 drop-shadow-[0_0_10px_rgba(96,165,250,0.6)]' 
+              : 'text-[#b088f9] drop-shadow-[0_0_8px_rgba(176,136,249,0.35)]'
+          }`}
+        >
+          {inner}
         </strong>
       );
     }
     if (part.startsWith('*') && part.endsWith('*')) {
+      const inner = part.slice(1, -1);
+      const isBlue = inner.toLowerCase().includes('azul') || inner.toLowerCase().includes('azúl');
       return (
-        <strong key={index} className="font-bold text-[#b088f9] drop-shadow-[0_0_8px_rgba(176,136,249,0.3)]">
-          {part.slice(1, -1)}
+        <strong 
+          key={index} 
+          className={`font-bold ${
+            isBlue 
+              ? 'text-blue-400 drop-shadow-[0_0_10px_rgba(96,165,250,0.6)]' 
+              : 'text-[#b088f9] drop-shadow-[0_0_8px_rgba(176,136,249,0.35)]'
+          }`}
+        >
+          {inner}
         </strong>
       );
     }
@@ -239,22 +296,29 @@ const renderFormattedText = (rawText) => {
   });
 };
 
-// Typewriter component with Markdown formatting
-const TypewriterText = ({ text }) => {
-  const [displayedLength, setDisplayedLength] = useState(0);
-  const [isSkipped, setIsSkipped] = useState(false);
+// Typewriter component with Markdown formatting (runs typewriter ONCE per letter)
+const TypewriterText = ({ text, alreadyTyped, onFinish }) => {
+  const [displayedLength, setDisplayedLength] = useState(alreadyTyped ? text.length : 0);
+  const [isSkipped, setIsSkipped] = useState(alreadyTyped);
 
   useEffect(() => {
+    if (alreadyTyped) {
+      setDisplayedLength(text.length);
+      setIsSkipped(true);
+      return;
+    }
+
     setDisplayedLength(0);
     setIsSkipped(false);
 
-    const speed = 14;
+    const speed = 12;
     const step = 2;
 
     const timer = setInterval(() => {
       setDisplayedLength((prev) => {
         if (prev + step >= text.length) {
           clearInterval(timer);
+          if (onFinish) onFinish();
           return text.length;
         }
         return prev + step;
@@ -262,11 +326,14 @@ const TypewriterText = ({ text }) => {
     }, speed);
 
     return () => clearInterval(timer);
-  }, [text]);
+  }, [text, alreadyTyped, onFinish]);
 
   const handleSkip = () => {
-    setIsSkipped(true);
-    setDisplayedLength(text.length);
+    if (!isSkipped) {
+      setIsSkipped(true);
+      setDisplayedLength(text.length);
+      if (onFinish) onFinish();
+    }
   };
 
   const currentText = isSkipped ? text : text.slice(0, displayedLength);
@@ -274,16 +341,18 @@ const TypewriterText = ({ text }) => {
 
   return (
     <div onClick={handleSkip} className="cursor-pointer group relative select-text">
-      <div className="whitespace-pre-line text-white/85 font-sans leading-loose tracking-wide font-light text-base sm:text-lg">
+      <div className="whitespace-pre-line text-white/90 font-sans leading-relaxed sm:leading-loose tracking-wide font-light text-base sm:text-lg">
         {renderFormattedText(currentText)}
         {isTyping && (
           <span className="inline-block w-2 h-5 ml-1 bg-[#b088f9] animate-pulse rounded-sm align-middle" />
         )}
       </div>
       {isTyping && (
-        <span className="text-[11px] font-mono text-white/40 block mt-3 group-hover:text-white/60 transition-colors">
-          (Haz clic para mostrar todo el texto)
-        </span>
+        <div className="mt-4 flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#c8a2c8] bg-white/[0.06] border border-white/10 px-3 py-1 rounded-full group-hover:bg-white/10 transition-colors">
+            Haz clic para mostrar todo el texto
+          </span>
+        </div>
       )}
     </div>
   );
@@ -291,7 +360,7 @@ const TypewriterText = ({ text }) => {
 
 const slideVariants = {
   enter: (direction) => ({
-    x: direction > 0 ? 50 : -50,
+    x: direction > 0 ? 40 : -40,
     opacity: 0,
     scale: 0.98
   }),
@@ -302,7 +371,7 @@ const slideVariants = {
     transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] }
   },
   exit: (direction) => ({
-    x: direction < 0 ? 50 : -50,
+    x: direction < 0 ? 40 : -40,
     opacity: 0,
     scale: 0.98,
     transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] }
@@ -312,20 +381,42 @@ const slideVariants = {
 const Buzon = ({ onBack }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [direction, setDirection] = useState(1);
-  const [likes, setLikes] = useState({});
+  const [likes, setLikes] = useState(() => {
+    try {
+      const saved = localStorage.getItem('lucesita_letter_likes');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem('lucesita_letter_likes', JSON.stringify(likes));
+    } catch {
+      // ignore storage errors
+    }
+  }, [likes]);
   const [readStatus, setReadStatus] = useState({});
+  const [hasTypedMap, setHasTypedMap] = useState({});
+  const [showPlaylist, setShowPlaylist] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
 
   const exportCardRef = useRef(null);
   const selectedLetter = selectedIndex !== null ? letters[selectedIndex] : null;
 
+  const markAsTyped = useCallback((letterId) => {
+    setHasTypedMap(prev => ({ ...prev, [letterId]: true }));
+  }, []);
+
   const handleOpenLetter = (index) => {
     setDirection(1);
     setSelectedIndex(index);
+    setShowPlaylist(false);
     setReadStatus(prev => ({ ...prev, [index]: true }));
   };
 
-  const handleNext = (e) => {
+  const handleNext = useCallback((e) => {
     e?.stopPropagation();
     if (selectedIndex !== null) {
       setDirection(1);
@@ -333,9 +424,9 @@ const Buzon = ({ onBack }) => {
       setSelectedIndex(nextIndex);
       setReadStatus(prev => ({ ...prev, [nextIndex]: true }));
     }
-  };
+  }, [selectedIndex]);
 
-  const handlePrev = (e) => {
+  const handlePrev = useCallback((e) => {
     e?.stopPropagation();
     if (selectedIndex !== null) {
       setDirection(-1);
@@ -343,11 +434,19 @@ const Buzon = ({ onBack }) => {
       setSelectedIndex(prevIndex);
       setReadStatus(prev => ({ ...prev, [prevIndex]: true }));
     }
-  };
+  }, [selectedIndex]);
 
   const toggleLike = (id, e) => {
-    e.stopPropagation();
-    setLikes(prev => ({ ...prev, [id]: !prev[id] }));
+    if (e) e.stopPropagation();
+    setLikes(prev => {
+      const updated = { ...prev, [id]: !prev[id] };
+      try {
+        localStorage.setItem('lucesita_letter_likes', JSON.stringify(updated));
+      } catch {
+        // ignore storage errors
+      }
+      return updated;
+    });
   };
 
   const handleDownloadImage = async (e) => {
@@ -405,7 +504,7 @@ const Buzon = ({ onBack }) => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex]);
+  }, [selectedIndex, handleNext, handlePrev]);
 
   return (
     <section className="relative min-h-[100dvh] w-full bg-[#050505] text-white flex flex-col items-center justify-start overflow-y-auto overflow-x-hidden pt-20 pb-36 px-4 md:px-12 selection:bg-purple-500/30 selection:text-white">
@@ -498,9 +597,17 @@ const Buzon = ({ onBack }) => {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="text-center z-10 max-w-3xl mb-6 flex flex-col items-center"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 text-[#c8a2c8] text-xs font-semibold uppercase tracking-widest mb-4">
-          <Mail className="w-3.5 h-3.5 text-[#b088f9]" />
-          <span>Buzón de Cartas</span>
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 text-[#c8a2c8] text-xs font-semibold uppercase tracking-widest">
+            <Mail className="w-3.5 h-3.5 text-[#b088f9]" />
+            <span>Buzón de Cartas</span>
+          </div>
+
+          {/* Badge: 2 cartas nuevas */}
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-purple-500/20 border border-purple-400/40 text-[#e6cfe6] text-xs font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(176,136,249,0.3)] animate-pulse">
+            <Sparkles className="w-3.5 h-3.5 text-[#b088f9]" />
+            <span>2 cartas nuevas</span>
+          </div>
         </div>
 
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-black tracking-tighter text-white mb-2 leading-tight">
@@ -511,14 +618,14 @@ const Buzon = ({ onBack }) => {
         </p>
       </motion.div>
 
-      {/* Clickable Hero Banner -> Opens First Letter */}
+      {/* Clickable Hero Banner -> Opens Latest / First Letter */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         whileHover={{ scale: 1.015, y: -4 }}
         whileTap={{ scale: 0.985 }}
-        onClick={() => handleOpenLetter(0)}
+        onClick={() => handleOpenLetter(17)}
         className="relative z-10 w-full max-w-4xl mb-12 rounded-[2.5rem] bg-white/[0.07] backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.35)] p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/[0.12] hover:border-white/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-[border-color,box-shadow,transform] duration-500 overflow-hidden group cursor-pointer"
       >
         <div 
@@ -528,6 +635,10 @@ const Buzon = ({ onBack }) => {
 
         <div className="flex items-center gap-5 sm:gap-6 z-10 w-full sm:w-auto">
           <div className="text-left flex-1">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/40 text-[#c8a2c8] text-xs font-bold mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#b088f9]" />
+              2 cartas nuevas agregadas
+            </div>
             <h2 className="text-white font-sans text-xl sm:text-2xl font-bold tracking-wide mb-1 flex items-center gap-2 group-hover:text-[#b088f9] transition-colors">
               Buzón de Mensajes
               <Sparkles className="w-4 h-4 text-[#b088f9]" />
@@ -559,7 +670,7 @@ const Buzon = ({ onBack }) => {
               key={letter.id}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, delay: idx * 0.04, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => handleOpenLetter(idx)}
@@ -576,7 +687,7 @@ const Buzon = ({ onBack }) => {
                     {letter.number}
                   </div>
                   <div>
-                    <span className="text-white/40 font-mono text-xs uppercase tracking-wider block">
+                    <span className="text-white/50 font-mono text-xs uppercase tracking-wider block">
                       {letter.date}
                     </span>
                     <span className="text-[#c8a2c8] font-sans text-xs font-semibold">
@@ -586,6 +697,11 @@ const Buzon = ({ onBack }) => {
                 </div>
 
                 <div className="flex items-center gap-2">
+                  {letter.isNew && (
+                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[10px] uppercase font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md animate-pulse flex items-center gap-1">
+                      <Sparkles className="w-2.5 h-2.5" /> Nueva
+                    </span>
+                  )}
                   {isRead && (
                     <span className="bg-white/[0.08] backdrop-blur-md text-[#88c8f9] text-[10px] uppercase font-semibold px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
                       <Check className="w-3 h-3" /> Leída
@@ -625,7 +741,7 @@ const Buzon = ({ onBack }) => {
         })}
       </div>
 
-      {/* Letter Reading Modal */}
+      {/* Streamlined Letter Reading Modal with Playlist Mode */}
       <AnimatePresence>
         {selectedLetter && (
           <motion.div
@@ -639,36 +755,57 @@ const Buzon = ({ onBack }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/90 backdrop-blur-xl"
+              className="fixed inset-0 bg-black/92 backdrop-blur-2xl"
               onClick={() => setSelectedIndex(null)}
             />
 
-            {/* Modal Box */}
+            {/* Ambient Modal Glow */}
+            <div 
+              className="absolute w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none z-0"
+              style={{ background: selectedLetter.accentGlow }}
+            />
+
+            {/* Modal Content Box */}
             <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-              className="relative w-full max-w-2xl bg-[#121118] text-white rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_25px_80px_rgba(0,0,0,0.9)] z-10 overflow-hidden border border-white/15 flex flex-col max-h-[80vh] sm:max-h-[78vh]"
+              exit={{ opacity: 0, y: 20, scale: 0.96 }}
+              transition={{ type: 'spring', stiffness: 320, damping: 30 }}
+              className="relative w-full max-w-2xl bg-[#0e0d14] text-white rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_30px_90px_rgba(0,0,0,0.95)] z-10 overflow-hidden border border-white/15 flex flex-col max-h-[85vh] sm:max-h-[82vh]"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Modal Header */}
-              <div className="p-4 sm:p-6 sm:pb-4 flex items-center justify-between border-b border-white/10 shrink-0 bg-[#121118] z-20">
+              {/* Modal Top Control Bar (Clean & Clutter-free) */}
+              <div className="px-5 py-4 sm:px-7 sm:py-5 flex items-center justify-between border-b border-white/10 shrink-0 bg-[#0e0d14]/90 backdrop-blur-md z-20">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/[0.08] border border-white/15 flex items-center justify-center text-[#b088f9] font-bold text-xs font-mono">
                     {selectedLetter.number}
                   </div>
                   <div>
-                    <span className="text-[11px] sm:text-xs uppercase tracking-widest text-white/50 font-semibold font-mono block">
+                    <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#c8a2c8] font-semibold font-mono block">
                       {selectedLetter.date}
                     </span>
-                    <span className="text-[11px] sm:text-xs font-sans text-[#c8a2c8] font-bold">
+                    <span className="text-[11px] sm:text-xs font-sans text-white/50">
                       {selectedLetter.tag}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="flex items-center gap-2">
+                  {/* Playlist Selector Toggle Button */}
+                  <button
+                    type="button"
+                    onClick={() => setShowPlaylist(prev => !prev)}
+                    className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border text-xs font-semibold font-sans flex items-center gap-1.5 transition-all ${
+                      showPlaylist 
+                        ? 'bg-[#b088f9] text-black border-[#b088f9] shadow-[0_0_15px_rgba(176,136,249,0.4)]' 
+                        : 'bg-white/[0.08] hover:bg-white/20 border-white/15 text-white'
+                    }`}
+                    title="Ver playlist de cartas"
+                  >
+                    <ListMusic className="w-3.5 h-3.5" />
+                    <span className="hidden xs:inline">Lista</span>
+                  </button>
+
                   {/* Download Image Button */}
                   <button 
                     type="button"
@@ -713,8 +850,84 @@ const Buzon = ({ onBack }) => {
                 </div>
               </div>
 
-              {/* Modal Body - Scrollable Container */}
-              <div className="p-5 sm:p-8 pb-8 overflow-y-auto flex-1 font-sans text-white/90 leading-relaxed text-base sm:text-lg space-y-6 bg-[#121118] min-h-0">
+              {/* Playlist Drawer (Select any letter directly like a music playlist) */}
+              <AnimatePresence>
+                {showPlaylist && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    className="bg-[#14131e] border-b border-white/10 p-4 sm:p-5 max-h-[300px] overflow-y-auto shrink-0 z-30 shadow-2xl custom-scrollbar"
+                  >
+                    <div className="flex items-center justify-between mb-3 px-1">
+                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c8a2c8] flex items-center gap-2">
+                        <ListMusic className="w-4 h-4 text-[#b088f9]" />
+                        Seleccionar Carta ({letters.length})
+                      </span>
+                      <button
+                        onClick={() => setShowPlaylist(false)}
+                        className="text-xs font-mono text-white/50 hover:text-white flex items-center gap-1"
+                      >
+                        <X className="w-3.5 h-3.5" /> Cerrar
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {letters.map((letter, idx) => {
+                        const isActive = selectedIndex === idx;
+                        const isNew = letter.isNew;
+                        return (
+                          <button
+                            key={letter.id}
+                            type="button"
+                            onClick={() => {
+                              setDirection(idx > selectedIndex ? 1 : -1);
+                              setSelectedIndex(idx);
+                              setReadStatus(prev => ({ ...prev, [idx]: true }));
+                              setShowPlaylist(false);
+                            }}
+                            className={`w-full text-left px-3 py-2 rounded-xl transition-all flex items-center justify-between border ${
+                              isActive 
+                                ? 'bg-[#b088f9]/20 border-[#b088f9]/50 text-white shadow-[0_0_15px_rgba(176,136,249,0.2)]' 
+                                : 'bg-white/[0.04] border-white/5 text-white/70 hover:bg-white/[0.09] hover:text-white'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              <span className={`w-6 h-6 rounded-md text-[11px] font-mono font-bold flex items-center justify-center shrink-0 ${
+                                isActive ? 'bg-[#b088f9] text-black' : 'bg-white/10 text-white/60'
+                              }`}>
+                                {letter.number}
+                              </span>
+                              <div className="truncate">
+                                <div className="flex items-center gap-1.5">
+                                  <p className={`font-sans text-xs font-semibold truncate ${isActive ? 'text-[#b088f9]' : 'text-white'}`}>
+                                    {letter.title}
+                                  </p>
+                                  {isNew && (
+                                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[8px] font-bold px-1.5 py-0.2 rounded-full uppercase tracking-wider shrink-0">
+                                      NUEVA
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-[10px] font-mono text-white/40 truncate">
+                                  {letter.date}
+                                </p>
+                              </div>
+                            </div>
+                            {isActive && (
+                              <Sparkles className="w-3.5 h-3.5 text-[#b088f9] shrink-0 ml-1 animate-pulse" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Modal Body - Pure Letter Reading Area */}
+              <div className="p-6 sm:p-9 overflow-y-auto flex-1 font-sans text-white/90 bg-[#0e0d14] min-h-0">
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
                     key={selectedLetter.id}
@@ -723,26 +936,26 @@ const Buzon = ({ onBack }) => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="space-y-6 pb-4"
+                    className="space-y-6"
                   >
-                    {/* Header Title */}
-                    <div className="mb-4 pb-3 border-b border-white/10">
-                      <h2 className="font-sans text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wide">
+                    {/* Title */}
+                    <div>
+                      <h2 className="font-sans text-2xl sm:text-3xl font-bold text-white tracking-wide leading-tight">
                         {selectedLetter.title}
                       </h2>
                     </div>
 
-                    {/* Letter Content with Typewriter Effect */}
-                    <TypewriterText text={selectedLetter.content} />
+                    {/* Letter Content with Typewriter Effect (Runs ONCE per letter) */}
+                    <TypewriterText 
+                      text={selectedLetter.content} 
+                      alreadyTyped={!!hasTypedMap[selectedLetter.id]}
+                      onFinish={() => markAsTyped(selectedLetter.id)}
+                    />
 
-                    {/* Footer Signature */}
-                    <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-xs font-mono text-white/40">
-                        <PenTool className="w-3.5 h-3.5 text-[#b088f9]" />
-                        <span>Mensaje guardado</span>
-                      </div>
+                    {/* Clean Signature Footer (Removed "Carta guardada") */}
+                    <div className="pt-6 border-t border-white/10 flex items-center justify-end">
                       <div className="text-right">
-                        <p className="font-serif italic text-sm sm:text-base text-[#c8a2c8]">con cariño,</p>
+                        <p className="font-serif italic text-sm sm:text-base text-[#c8a2c8] mb-0.5">con cariño,</p>
                         <p className="font-sans text-xs font-bold text-white/80 uppercase tracking-widest">para mi calabacita</p>
                       </div>
                     </div>
@@ -750,30 +963,33 @@ const Buzon = ({ onBack }) => {
                 </AnimatePresence>
               </div>
 
-              {/* Modal Footer Controls */}
-              <div className="p-3.5 sm:px-6 sm:py-4 bg-[#181722] border-t border-white/10 flex items-center justify-between shrink-0 z-20 shadow-lg">
+              {/* Modal Footer Controls with Responsive Mobile Layout */}
+              <div className="px-3.5 py-3 sm:px-7 sm:py-4 bg-[#14131d] border-t border-white/10 flex items-center justify-between gap-2 shrink-0 z-20 shadow-lg">
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-white/[0.08] hover:bg-white/15 border border-white/15 text-white font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 transition-all"
+                  className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-full bg-white/[0.08] hover:bg-white/15 border border-white/15 text-white font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-1 sm:gap-2 transition-all shrink-0 active:scale-95"
                 >
-                  <ChevronLeft className="w-4 h-4" />
-                  <span>Anterior</span>
+                  <ChevronLeft className="w-4 h-4 shrink-0" />
+                  <span>Ant<span className="hidden sm:inline">erior</span></span>
                 </button>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-white/60 font-semibold">
-                    {selectedIndex + 1} de {letters.length}
-                  </span>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowPlaylist(prev => !prev)}
+                  className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-white/[0.06] hover:bg-white/15 border border-white/10 text-white/90 font-mono text-[11px] sm:text-xs font-semibold flex items-center gap-1.5 transition-colors shrink-0 active:scale-95"
+                >
+                  <ListMusic className="w-3.5 h-3.5 text-[#b088f9] shrink-0" />
+                  <span>{selectedIndex + 1} / {letters.length}</span>
+                </button>
 
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-[#b088f9] hover:bg-[#c8a2c8] text-black font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 transition-all shadow-[0_0_20px_rgba(176,136,249,0.3)]"
+                  className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-full bg-[#b088f9] hover:bg-[#c8a2c8] text-black font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-1 sm:gap-2 transition-all shadow-[0_0_20px_rgba(176,136,249,0.3)] shrink-0 active:scale-95"
                 >
-                  <span>Siguiente</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <span>Sig<span className="hidden sm:inline">uiente</span></span>
+                  <ChevronRight className="w-4 h-4 shrink-0" />
                 </button>
               </div>
 

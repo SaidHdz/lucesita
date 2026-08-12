@@ -401,7 +401,7 @@ const Home = ({ onViewChange }) => {
           title="Cartas para mi calabaza"
           price="Notas"
           description="algunas de las cartas que te escribí, espero que te gusten, disculpa la tardanza."
-          badges={["Mensajes", "Especial", "Cartas"]}
+          badges={["✨ 2 cartas nuevas", "Mensajes", "Cartas"]}
           buttonText="Abrir Cartas"
           index={3}
           accentColor="rgba(176, 136, 249, 0.2)"

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause, SkipBack, SkipForward, Music, ChevronDown, ChevronUp, Volume2, VolumeX } from 'lucide-react';
-import { initialSongs } from '../assets/songs';
+import { Play, Pause, SkipBack, SkipForward, Music, ChevronDown, ChevronUp, Volume2, VolumeX, ExternalLink } from 'lucide-react';
+import { initialSongs, getSpotifyUrl, getAppleMusicUrl } from '../assets/songs';
 
 const FloatingPlayer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,6 +11,7 @@ const FloatingPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showPlatformMenu, setShowPlatformMenu] = useState(false);
 
   const audioRef = useRef(null);
   const currentSong = initialSongs[currentIndex];
@@ -132,7 +133,7 @@ const FloatingPlayer = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="w-72 sm:w-80 bg-[#121118]/95 backdrop-blur-2xl border border-white/20 p-4 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white flex flex-col gap-3"
+            className="w-72 sm:w-80 bg-[#121118]/95 backdrop-blur-2xl border border-white/20 p-4 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white flex flex-col gap-3 relative"
           >
             {/* Header controls */}
             <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
@@ -142,15 +143,53 @@ const FloatingPlayer = () => {
                   Playlist Flotante
                 </span>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsCollapsed(true)}
-                className="p-1 rounded-full hover:bg-white/10 text-white/60 hover:text-white transition-colors"
-                title="Minimizar reproductor"
-              >
-                <ChevronDown className="w-4 h-4" />
-              </button>
+              
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => setShowPlatformMenu(prev => !prev)}
+                  className="p-1 rounded-full hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+                  title="Abrir en Spotify o Apple Music"
+                >
+                  <ExternalLink className="w-4 h-4 text-[#b088f9]" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsCollapsed(true)}
+                  className="p-1 rounded-full hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+                  title="Minimizar reproductor"
+                >
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </div>
             </div>
+
+            {/* Platform Popover Dropdown */}
+            {showPlatformMenu && (
+              <div className="bg-[#181724] border border-white/20 p-3 rounded-2xl space-y-2 shadow-2xl">
+                <p className="text-[10px] font-mono text-[#c8a2c8] uppercase tracking-wider font-bold text-center">
+                  Abrir canción en:
+                </p>
+                <a
+                  href={getSpotifyUrl(currentSong)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between px-3 py-2 rounded-xl bg-[#1DB954]/20 hover:bg-[#1DB954]/30 border border-[#1DB954]/40 text-[#1DB954] font-bold text-xs transition-all"
+                >
+                  <span className="flex items-center gap-2">Spotify</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href={getAppleMusicUrl(currentSong)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between px-3 py-2 rounded-xl bg-[#FA243C]/20 hover:bg-[#FA243C]/30 border border-[#FA243C]/40 text-[#FA243C] font-bold text-xs transition-all"
+                >
+                  <span className="flex items-center gap-2">Apple Music</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            )}
 
             {/* Song Info & Cover */}
             <div className="flex items-center gap-3">

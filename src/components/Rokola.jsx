@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, X, Play, Pause, SkipBack, SkipForward, 
-  Link, Heart, Maximize2, Search, Volume2, VolumeX, Volume1, Clock, Mic2, ListMusic
+  Search, Volume2, VolumeX, Volume1, Clock, Mic2, ListMusic, ExternalLink
 } from 'lucide-react';
-import { initialSongs as songs } from '../assets/songs';
+import { initialSongs as songs, getSpotifyUrl, getAppleMusicUrl } from '../assets/songs';
 import ElasticSlider from './ElasticSlider';
 
 const Rokola = ({ onBack }) => {
@@ -12,6 +12,7 @@ const Rokola = ({ onBack }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showLyrics, setShowLyrics] = useState(false);
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
+  const [platformModalSong, setPlatformModalSong] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   
   // Audio state
@@ -20,21 +21,6 @@ const Rokola = ({ onBack }) => {
   const [duration, setDuration] = useState(100);
   const [volume, setVolume] = useState(25);
   const [isMuted, setIsMuted] = useState(false);
-
-  // Fallback if no songs
-  if (!songs || songs.length === 0) {
-    return <div className="text-white">Cargando canciones...</div>;
-  }
-
-  const currentSong = songs[currentIndex];
-
-  const filteredSongs = songs
-    .map((song, idx) => ({ song, originalIndex: idx }))
-    .filter(({ song }) => 
-      song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      song.artist.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (song.note && song.note.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
 
   React.useEffect(() => {
     if (audioRef.current) {
@@ -51,6 +37,21 @@ const Rokola = ({ onBack }) => {
       audioRef.current.volume = isMuted ? 0 : volume / 100;
     }
   }, [volume, isMuted]);
+
+  // Fallback if no songs
+  if (!songs || songs.length === 0) {
+    return <div className="text-white flex items-center justify-center min-h-[100dvh]">Cargando canciones...</div>;
+  }
+
+  const currentSong = songs[currentIndex];
+
+  const filteredSongs = songs
+    .map((song, idx) => ({ song, originalIndex: idx }))
+    .filter(({ song }) => 
+      song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      song.artist.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (song.note && song.note.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
 
   const handleTimeUpdate = () => {
     if (audioRef.current) {
@@ -109,38 +110,20 @@ const Rokola = ({ onBack }) => {
         />
       </div>
 
-      {/* Floating Side Icons (MR style) */}
+      {/* Floating Side Icons */}
       <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-50 hidden md:flex">
-        {currentSong?.spotifyUrl && (
-          <a href={currentSong.spotifyUrl} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/20 backdrop-blur-md transition-all">
-            <Link className="w-5 h-5" />
-          </a>
-        )}
         <button 
           onClick={() => setShowPlaylistModal(true)}
-          title="Ver Lista"
+          title="Ver Lista de Canciones"
           className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/20 backdrop-blur-md transition-all"
         >
           <ListMusic className="w-5 h-5" />
         </button>
       </div>
-      
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-50 hidden md:flex">
-        <button 
-          onClick={() => setShowPlaylistModal(true)}
-          title="Buscar Canción"
-          className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/20 backdrop-blur-md transition-all"
-        >
-          <Search className="w-5 h-5" />
-        </button>
-        <button className="p-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/20 backdrop-blur-md transition-all">
-          <Maximize2 className="w-5 h-5" />
-        </button>
-      </div>
 
       {/* Global Header Panel */}
       <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl flex items-center justify-between bg-white/10 backdrop-blur-md border border-white/15 px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg z-50">
-        <button onClick={onBack} className="text-white/80 hover:text-white transition-colors">
+        <button onClick={onBack} className="text-white/80 hover:text-white transition-colors flex items-center gap-1">
           <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
         </button>
         <div 
@@ -166,9 +149,13 @@ const Rokola = ({ onBack }) => {
             </motion.div>
           </AnimatePresence>
         </div>
-        <button onClick={() => setShowPlaylistModal(true)} className="text-white/80 hover:text-white transition-colors flex items-center gap-1 text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full border border-white/15">
-          <ListMusic className="w-4 h-4" />
-          <span className="hidden md:inline font-mono">Lista</span>
+        <button 
+          onClick={() => setPlatformModalSong(currentSong)} 
+          className="text-white/80 hover:text-white transition-colors flex items-center gap-1 text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full border border-white/15"
+          title="Abrir en Spotify o Apple Music"
+        >
+          <ExternalLink className="w-4 h-4" />
+          <span className="hidden md:inline font-mono">Abrir en...</span>
         </button>
       </div>
 
@@ -198,13 +185,13 @@ const Rokola = ({ onBack }) => {
                 transition={{ type: 'spring', damping: 20, stiffness: 100 }}
                 className="absolute w-[80%] md:w-full max-w-2xl aspect-[4/5] md:aspect-[16/10] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/10"
               >
-                {/* Background Pattern seamlessly integrated as primary texture */}
+                {/* Background Pattern */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${song.cover})` }}
                 />
                 
-                {/* Glassmorphism Overlay for text visibility */}
+                {/* Glassmorphism Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10"></div>
 
                 {/* Lyrics Overlay */}
@@ -276,9 +263,27 @@ const Rokola = ({ onBack }) => {
 
                 {/* Content Details */}
                 <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 flex flex-col justify-end transition-opacity duration-300" style={{ opacity: showLyrics && isActive ? 0 : 1 }}>
-                  <h3 className="text-white font-bold text-xl md:text-4xl tracking-wide drop-shadow-md mb-0.5 truncate">
-                    {song.title}
-                  </h3>
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <h3 className="text-white font-bold text-xl md:text-4xl tracking-wide drop-shadow-md truncate">
+                      {song.title}
+                    </h3>
+
+                    {/* Single Platform Link Trigger */}
+                    {isActive && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setPlatformModalSong(song);
+                        }}
+                        className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xs font-semibold flex items-center gap-1.5 transition-all shrink-0"
+                        title="Abrir en Spotify o Apple Music"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-[#b088f9]" />
+                        <span className="hidden sm:inline">Abrir en...</span>
+                      </button>
+                    )}
+                  </div>
                   
                   <div className="flex items-center gap-3 mb-3 md:mb-6">
                     <p className="text-white/70 font-sans text-xs md:text-base uppercase tracking-widest truncate">
@@ -308,7 +313,7 @@ const Rokola = ({ onBack }) => {
         </AnimatePresence>
       </div>
 
-      {/* Separate Floating Control Bar */}
+      {/* Floating Control Bar */}
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -384,7 +389,7 @@ const Rokola = ({ onBack }) => {
         </div>
       </motion.div>
 
-      {/* Playlist / Search Modal Overlay */}
+      {/* Clean Playlist Search Modal */}
       <AnimatePresence>
         {showPlaylistModal && (
           <motion.div
@@ -400,14 +405,9 @@ const Rokola = ({ onBack }) => {
                   <h2 className="text-white text-xl md:text-2xl font-bold font-sans">
                     Tu Playlist ({songs.length} canciones)
                   </h2>
-                  <a 
-                    href="https://open.spotify.com/playlist/6mbZyMOGASvK2iEVTnV9sI?si=jhl-I9WpSV-Zw4axCCJ80Q"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs text-green-400 hover:text-green-300 font-mono flex items-center gap-1 mt-1 transition-colors"
-                  >
-                    <Link className="w-3.5 h-3.5" /> Abrir Playlist Completa en Spotify ↗
-                  </a>
+                  <p className="text-xs text-white/50 font-mono">
+                    Selecciona una canción para reproducirla
+                  </p>
                 </div>
               </div>
               <button 
@@ -418,30 +418,19 @@ const Rokola = ({ onBack }) => {
               </button>
             </div>
 
-            {/* Search Input & Spotify Direct Banner */}
-            <div className="w-full max-w-3xl flex flex-col md:flex-row gap-3 mb-4">
-              <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
-                <input
-                  type="text"
-                  placeholder="Buscar canción o artista..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-12 pr-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-white/40 backdrop-blur-md transition-colors"
-                />
-              </div>
-              <a
-                href="https://open.spotify.com/playlist/6mbZyMOGASvK2iEVTnV9sI?si=jhl-I9WpSV-Zw4axCCJ80Q"
-                target="_blank"
-                rel="noreferrer"
-                className="bg-green-600/30 hover:bg-green-600/50 border border-green-500/40 text-green-300 font-bold px-4 py-3 rounded-xl flex items-center justify-center gap-2 text-sm backdrop-blur-md transition-all shrink-0"
-              >
-                <ListMusic className="w-4 h-4" />
-                <span>Spotify Playlist ↗</span>
-              </a>
+            {/* Search Input */}
+            <div className="w-full max-w-3xl mb-4 relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
+              <input
+                type="text"
+                placeholder="Buscar canción o artista..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-white/10 border border-white/20 rounded-xl pl-12 pr-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-white/40 backdrop-blur-md transition-colors"
+              />
             </div>
 
-            {/* Song List */}
+            {/* Clean Song List */}
             <div className="w-full max-w-3xl flex-1 overflow-y-auto pr-1 no-scrollbar space-y-3">
               {filteredSongs.map(({ song, originalIndex }) => {
                 const isCurrent = originalIndex === currentIndex;
@@ -453,7 +442,7 @@ const Rokola = ({ onBack }) => {
                       setIsPlaying(true);
                       setShowPlaylistModal(false);
                     }}
-                    className={`flex items-center gap-4 p-3 md:p-4 rounded-xl border transition-all cursor-pointer ${
+                    className={`flex items-center gap-4 p-3 md:p-4 rounded-xl border transition-all cursor-pointer group ${
                       isCurrent
                         ? 'bg-purple-600/30 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.3)]'
                         : 'bg-white/5 hover:bg-white/15 border-white/10'
@@ -466,7 +455,7 @@ const Rokola = ({ onBack }) => {
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <h4 className="text-white font-bold text-sm md:text-base truncate">
+                        <h4 className="text-white font-bold text-sm md:text-base truncate group-hover:text-purple-300 transition-colors">
                           {song.title}
                         </h4>
                         {isCurrent && (
@@ -478,36 +467,77 @@ const Rokola = ({ onBack }) => {
                       <p className="text-white/60 text-xs md:text-sm truncate">
                         {song.artist}
                       </p>
-                      {song.note && (
-                        <p className="text-white/40 font-serif italic text-xs truncate mt-0.5">
-                          "{song.note}"
-                        </p>
-                      )}
                     </div>
                   </div>
                 );
               })}
-
-              {/* Special Item #50: Link to Spotify Playlist */}
-              <a
-                href="https://open.spotify.com/playlist/6mbZyMOGASvK2iEVTnV9sI?si=jhl-I9WpSV-Zw4axCCJ80Q"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-green-500/50 bg-green-950/40 hover:bg-green-900/50 transition-all cursor-pointer shadow-[0_0_25px_rgba(34,197,94,0.2)] mt-4"
-              >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg bg-green-500/20 border border-green-500/40 flex items-center justify-center shrink-0">
-                  <ListMusic className="w-8 h-8 text-green-400" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-green-300 font-bold text-base md:text-lg flex items-center gap-2">
-                    50. Abrir Playlist Completa en Spotify ↗
-                  </h4>
-                  <p className="text-white/70 text-xs md:text-sm">
-                    Haz clic aquí para abrir y guardar la playlist directamente en Spotify
-                  </p>
-                </div>
-              </a>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Platform Chooser Modal (Single clean location) */}
+      <AnimatePresence>
+        {platformModalSong && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4"
+            onClick={() => setPlatformModalSong(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="bg-[#121118] border border-white/20 p-6 md:p-8 rounded-3xl max-w-md w-full shadow-[0_25px_80px_rgba(0,0,0,0.9)] text-center relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setPlatformModalSong(null)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <div className="w-20 h-20 rounded-2xl overflow-hidden mx-auto mb-4 border border-white/20 shadow-xl">
+                <img src={platformModalSong.cover} alt={platformModalSong.title} className="w-full h-full object-cover" />
+              </div>
+
+              <h3 className="text-white font-bold text-xl md:text-2xl mb-1">
+                {platformModalSong.title}
+              </h3>
+              <p className="text-white/60 font-sans text-sm mb-6">
+                {platformModalSong.artist}
+              </p>
+
+              <p className="text-xs font-mono text-[#c8a2c8] uppercase tracking-widest mb-4 font-bold">
+                Abrir en tu plataforma:
+              </p>
+
+              <div className="space-y-3">
+                <a
+                  href={getSpotifyUrl(platformModalSong)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-[#1DB954] hover:bg-[#1ed760] text-black font-bold font-sans flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(29,185,84,0.3)] transition-all hover:scale-[1.02]"
+                >
+                  <span>Spotify</span>
+                  <ExternalLink className="w-4 h-4 ml-auto" />
+                </a>
+
+                <a
+                  href={getAppleMusicUrl(platformModalSong)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FA243C] to-[#fc3c52] hover:from-[#fc3c52] hover:to-[#ff5267] text-white font-bold font-sans flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(250,36,60,0.3)] transition-all hover:scale-[1.02]"
+                >
+                  <span>Apple Music</span>
+                  <ExternalLink className="w-4 h-4 ml-auto" />
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
