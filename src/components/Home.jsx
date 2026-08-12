@@ -10,6 +10,7 @@ import Counter from './Counter';
 import snoopyCover from '../assets/snoopy.jpg';
 import woodstockCover from '../assets/woodstock.jpg';
 import cartasCover from '../assets/WhatsApp Image 2026-08-07 at 2.02.22 AM.jpeg';
+import { initialSongs } from '../assets/songs';
 const homeCover = snoopyCover;
 
 const springValues = {
@@ -177,6 +178,20 @@ const Home = ({ onViewChange }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [tapCount, setTapCount] = useState(0);
   const [showUnlockToast, setShowUnlockToast] = useState(false);
+  const [newSongsCount, setNewSongsCount] = useState(0);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('listenedNewSongs');
+      const listened = saved ? JSON.parse(saved) : [];
+      const totalNew = initialSongs.filter(s => s.date === '2026-08-11T00:00:00Z');
+      const remaining = totalNew.filter(s => !listened.includes(s.id)).length;
+      setNewSongsCount(remaining);
+    } catch(e) {
+      const totalNew = initialSongs.filter(s => s.date === '2026-08-11T00:00:00Z').length;
+      setNewSongsCount(totalNew);
+    }
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -362,7 +377,7 @@ const Home = ({ onViewChange }) => {
           title="tu playlist"
           price="Play"
           description="una playlist que hice para ti, de canciones que me gustan y me hacen recordarnos, aun que usar spotify es muy facil asi que mejor una web, no? te quiero"
-          badges={["Música", "Nostalgia"]}
+          badges={newSongsCount > 0 ? [`✨ ${newSongsCount} nuevas`, "Música", "Nostalgia"] : ["Música", "Nostalgia"]}
           buttonText="Escuchar"
           index={0}
           accentColor="rgba(176, 136, 249, 0.2)"
