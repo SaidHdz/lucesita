@@ -252,6 +252,48 @@ nunca podre olvidar qué te gusta el lila o el *Azúl*, que te gusta snoopy o to
 intento soltarte sabiendo que quiza asi ambos podamos resprirar y estar en paz, dolerá y tardará, me sentiré como si estuviera en la *TARMAC* esperando a que deje de doler, aun que si ese es el precio por haberte amado con todo mi ser, lo tomaría una y mil veces, ahora seguire tratando de see *Normal* aun que sepa que pondre *La Sonrisa Obligatoria* y sabiendo que yo fui el *Amor de su vida*, ni aquí puedo terminar de escribir jaja, espero algún día recibir una mensaje tuyo diciendo *OYE* y mi primer respuesta sea "si", por que mi hogar esta *Dónde Tu Estas*, este final se siente *PARANORMAL*, esperando y rogándole a dios a que me digas si regresaras, por ahora me despido de ti y lo nuestro con un *Adiós Amor*`,
     stampColor: 'from-[#88c8f9] via-[#b088f9] to-pink-700',
     accentGlow: 'rgba(136, 200, 249, 0.35)'
+  },
+  { 
+    id: 20, 
+    number: "20",
+    title: '12 y 13', 
+    date: '13/ago/2026',
+    tag: 'Recuerdos',
+    isNew: true,
+    snippet: 'estos dias por cuestiones de cosas que no había hecho, sali visite el centro, periférico y raramente te vi en lugares donde ya no estas más conmigo...',
+    content: `estos dias por cuestiones de cosas que no había hecho, sali 
+visite el centro, periférico y raramente te vi en lugares donde ya no estas más conmigo 
+me fui en la misma pecera en la que nos fuimos aquella vez quw fuiste a pedir chambita y recordé ese abrazo que te di cuando llegaste feliz por ser aceltada
+camine directo a del sol justo como lo hicimos aquel día, recordando el chiste que hice con aquel señor, parece que va a llover, el cielo se está nublando, raro que ahora la lluvia provino de mis ojos, no pude evitar soltar una lagrima de cocodrilo, al regresar volvi en esa pecera en la que nos fuimos y recordé tiernamente como regresamos, tu recargada en mi hombro y yo feliz aun que con mucho calor.
+hoy 13 fui a periferico a pagar mi escuela, me acorde de la primera ves que fuimos, cuando comimos comida china, cuando comimos las crepas incluso cuando fuimos a wolworth una qué otra vez, me senté en la banca en la cual fue la última vez que estuvimos sentados ahi, recordé tu risa y tu mirada tan linda en todos los rincones de periferico, como, incluso aun que no estés, yo te sigo viendo en tantos lugares, en todos los que estuvimos e incluso en los que te pensé y te sigo pensando 
+y bueno, triste y feliz al mismo tiempo, quiza por esa razón quiero irme de aquí, no por ti, si no por el recuerdo de nuestro amor que no volverá a ser, y tu recuerdo que me pesa cada dia mas`,
+    stampColor: 'from-blue-500 via-indigo-500 to-purple-600',
+    accentGlow: 'rgba(136, 200, 249, 0.3)'
+  },
+  { 
+    id: 21, 
+    number: "21",
+    title: 'Poema a mi chica', 
+    date: '14/ago/2026',
+    tag: 'Poema',
+    isNew: true,
+    snippet: 'Pelo rojo y largo, pincitas de estrellita, tomando su café con nusica de Rauw sonando. Es la niña de mi vida...',
+    content: `Pelo rojo y largo, pincitas de estrellita,
+tomando su café con nusica de Rauw sonando.
+Es la niña de mi vida, mi calabacita más bonita,
+que con solo una mirada me terminaba ganando.
+
+Tiene unos ojitos lindos que de verlos me derriten,
+y unos labios tan preciosos que me vuelven loco.
+Sus besos son el recuerdo que en la mente se repiten,
+y aunque trato de ser fuerte, me quiebro poco a poco.
+
+Pero la verdad es que hoy, ya no la tengo conmigo,
+saber que no estamos juntos me duele un montón.
+Y aunque el camino se parta y ya no sea mi abrigo,
+yo siempre la voy a amar con todo el corazón.`,
+    stampColor: 'from-pink-500 via-rose-400 to-red-500',
+    accentGlow: 'rgba(244, 114, 182, 0.3)'
   }
 ];
 

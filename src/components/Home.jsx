@@ -127,7 +127,7 @@ const PremiumCard = ({
           {showIGNote && (
             <div className="absolute top-4 left-1/2 -translate-x-1/2 flex flex-col items-center z-20 pointer-events-none" style={{ transform: 'translateZ(60px)' }}>
               <div className="bg-white/95 text-black px-3.5 py-1.5 rounded-2xl shadow-xl border border-white/60 text-xs font-sans font-bold text-center relative mb-1.5">
-                <span>te extraño mi calabaza</span>
+                <span>hoy te extrañe mas que ayer luz</span>
                 <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[6px] border-t-white/95" />
               </div>
             </div>
@@ -266,7 +266,7 @@ const Home = ({ onViewChange }) => {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             className="relative bg-white/95 text-black px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-white/60 text-xs sm:text-sm font-sans font-bold text-center mb-3 group-hover:scale-105 transition-transform z-20"
           >
-            <span className="leading-snug text-black font-sans font-bold">te extraño mi calabaza</span>
+            <span className="leading-snug text-black font-sans font-bold">hoy te extrañe mas que ayer luz</span>
             {/* Speech Bubble Tail pointing down */}
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[8px] border-t-white/95" />
           </motion.div>
